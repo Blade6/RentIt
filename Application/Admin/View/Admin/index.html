@@ -1,0 +1,46 @@
+	<h2 class="sub-header">Admin管理</h2>
+	<div class="BeInCenter">
+		<form action="{:U('Admin/search')}" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label>AdminName:</label>
+				<input type="text" name="adminName">
+				<button class="btn btn-primary" type="submit" name="search">查询</button>
+				<a class="btn btn-default" href="{:U('Admin/add')}">添加管理员</a>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>AdminName</th>
+				<th>Password</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Admin/manage')}" method="post">
+						<tr>
+							<td>
+								{$data.id}
+								<input type="hidden" value="{$data.id}" name="id">
+							</td>
+							<td>
+								{$data.adminname}
+								<input type="hidden" value="{$data.adminname}" name="adminName">
+							</td>
+							<td>
+								{$data.password}
+								<input type="hidden" value="{$data.password}" name="password">
+							</td>
+							<td><button class="btn btn-success" type="submit" name="edit_0">修改</button></td>
+							<td>								
+								<button class="btn btn-danger" type="submit" name="delete">删除</button>
+							</td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

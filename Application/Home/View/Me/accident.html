@@ -1,0 +1,25 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>违章记录</h3>
+			<table class="table table-striped">
+				<thead>
+					<th>License</th>
+					<th>Date</th>
+					<th>Place</th>
+				</thead>
+				<tbody>
+					<volist name="accident" id="data">
+						<tr>
+							<td>{$data.license_no}</td>
+							<td>{$data.date}</td>
+							<td>{$data.place}</td>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

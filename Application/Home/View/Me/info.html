@@ -1,0 +1,134 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>我的资料</h3>
+			<script>
+				$(document).ready(
+					function(){
+						$(".panel").click(
+							function(){
+								$(".panel").removeClass("p-active");
+								$(this).addClass("p-active");
+								switch($(this).attr("name")){
+									case 'base_info':
+										$("div.base_info").removeClass("none");
+										$("div.change_password").addClass("none");
+										$("div.change_pic").addClass("none");
+										break;	
+									case 'change_password':
+										$("div.change_password").removeClass("none");
+										$("div.base_info").addClass("none");
+										$("div.change_pic").addClass("none");
+										break;
+									case 'change_pic':
+										$("div.change_pic").removeClass("none");
+										$("div.base_info").addClass("none");
+										$("div.change_password").addClass("none");
+										break;									
+									default:
+										break;
+								}
+							}
+						);
+					}
+				);
+			</script>
+			<div class="MyInfo">
+				<ul class="list-unstyled ul-menu">
+					<li class="li-menu center">
+						<p class="panel p-active" name="base_info">基本资料</p>
+					</li>					
+					<li class="li-menu center">
+						<p class="panel" name="change_password">修改密码</p>
+					</li>
+					<li class="li-menu center">
+						<p class="panel" name="change_pic">更换头像</p>
+					</li>
+				</ul>
+			</div>
+			<!-- 基本资料 -->
+			<div class="base_info">
+				<form action="{:U('Me/info')}" method="post" class="form-horizontal" role="form">
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">用户名</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="{$userInfo.username}" name="username">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">身份证号</label>
+						<div class="col-md-10">
+							<input class="form-control" type="number" placeholder="{$userInfo.identity}" disabled="true">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">真实姓名</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="{$userInfo.name}" name="name" disabled="true">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">手机号码</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="{$userInfo.phone_num}" disabled="true">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">性别</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="{$userInfo.gender}" disabled="true">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">年龄</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="{$userInfo.age}" disabled="true">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-5">
+							<button class="btn btn-lg btn-success" type="submit" name="submit1">修改</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 修改密码 -->
+			<div class="change_password none">
+				<form action="{:U('Me/info')}" method="post" class="form-horizontal" role="form">
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">原密码</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="请输入原密码" name="password1">
+						</div>
+					</div>
+					<div class="form-group form-group-lg has-success">
+						<label class="col-md-2 control-label">新密码</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" placeholder="请输入新密码" name="password2" maxlength="16">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-5">
+							<button class="btn btn-lg btn-success" type="submit" name="submit2">修改</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 更换头像 -->
+			<div class="change_pic none">
+				<div>
+					<label>当前头像:</label><br>
+					<img src="__PUBLIC__/user_pics/{$userInfo.picture}" class="user-pic">
+				</div>
+				<br>
+				<form action="{:U('Me/info')}" method="post" enctype='multipart/form-data' role="form">
+					<label>更换头像:</label>
+					<input type="file" name="user-head">
+					<button class="btn btn-success btn-top" type="submit" name="submit3">确定</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

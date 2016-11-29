@@ -1,0 +1,98 @@
+	<h2 class="sub-header">用户管理</h2>
+	<div class="BeInCenter">
+		<h3>修改UserId={$data.identity}的记录:</h3>
+		<!-- 修改用户个人信息 -->
+		<div class="personality">
+			<form class="form-horizontal" action="{:U('User/edit')}" method="post" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="name" placeholder="{$data.name}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Gender</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="gender" placeholder="{$data.gender}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Age</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="age" placeholder="{$data.age}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Phone</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="phone_num" placeholder="{$data.phone_num}">
+					</div>
+				</div>
+				<div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				    	<button type="submit" class="btn btn-success" name="edit_11">修改</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+		<hr>
+		<!-- 修改用户租车信息 -->
+		<div class="rentInfo">
+			<form class="form-horizontal" action="{:U('User/edit')}" method="post" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">是否租车</label>
+					<div class="col-sm-10">
+						<php>
+							if($data["flag"]){
+								echo "<input type=\"radio\" name=\"flag\" value=\"1\" checked=\"true\">是";
+								echo "<input type=\"radio\" name=\"flag\" value=\"0\">否";
+							}else{
+								echo "<input type=\"radio\" name=\"flag\" value=\"1\">是";
+								echo "<input type=\"radio\" name=\"flag\" value=\"0\" checked=\"true\">否";
+							}
+						</php>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">核验情况</label>
+					<div class="col-sm-10">
+						<php>
+							switch($data["checked"]){
+								case 1:
+									echo "<input type=\"radio\" name=\"checked\" id=\"checked\" value=\"1\" checked=\"true\">已核验";
+									echo "<input type=\"radio\" name=\"checked\" id=\"checking\" value=\"0\">核验中";
+									echo "<input type=\"radio\" name=\"checked\" id=\"unchecked\" value=\"-1\">未核验";
+									break;
+								case 0:
+									echo "<input type=\"radio\" name=\"checked\" id=\"checked\" value=\"1\">已核验";
+									echo "<input type=\"radio\" name=\"checked\" id=\"checking\" value=\"0\" checked=\"true\">核验中";
+									echo "<input type=\"radio\" name=\"checked\" id=\"unchecked\" value=\"-1\">未核验";
+									break;
+								case -1:
+									echo "<input type=\"radio\" name=\"checked\" id=\"checked\" value=\"1\">已核验";
+									echo "<input type=\"radio\" name=\"checked\" id=\"checking\" value=\"0\">核验中";
+									echo "<input type=\"radio\" name=\"checked\" id=\"unchecked\" value=\"-1\" checked=\"true\">未核验";
+									break;
+								default:
+									break;
+							}
+						</php>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">肇事数量</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="number" name="accident_num" placeholder="{$data.accident_num}" max="10">
+					</div>
+				</div>
+				<div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				    	<button type="submit" class="btn btn-success" name="edit_22">修改</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		
+	</script>

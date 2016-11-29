@@ -1,0 +1,42 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>欢迎页</h3>
+			<div class="Welcome">
+				<span><b>姓名:</b>{$userInfo.name}</span>
+				<span><b>手机:</b>{$userInfo.phone_num}</span>
+				<span><b>Email:</b>未绑定</span>
+				<span>
+					<b>核验情况:</b>
+					<php>
+						switch($userInfo["checked"]){
+							case 1:
+								echo "已核验";
+								break;
+							case 0:
+								echo "核验中";
+								break;
+							case -1:
+								echo "未核验";
+								break;
+							default:
+								break;
+						}
+					</php>
+				</span>
+			</div>
+			<div class="user-chat-data">
+				<a href="#">
+					<h2 class="center">{$OnRentNum}</h2>
+					<p class="center">待还车订单</p>
+				</a>
+				<a href="#">
+					<h2 class="center">{$AcciNum}</h2>
+					<p class="center">违章记录</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

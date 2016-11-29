@@ -1,0 +1,46 @@
+	<h2 class="sub-header">用户管理</h2>
+	<h3 class="sub-header">查询结果为:</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>UserId</th>
+				<th>UserName</th>
+				<th>Password</th>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>Phone Number</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('User/generalManage')}" method="post" onsubmit="return sure()">
+						<tr>
+							<td>
+								{$data.identity}
+								<input type="hidden" value="{$data.identity}" name="identity">
+							</td>
+							<td>{$data.username}</td>
+							<td>{$data.password}</td>
+							<td>{$data.name}</td>
+							<td>{$data.gender}</td>
+							<td>{}</td>
+							<td>								
+								<button class="btn btn-danger" type="submit" name="delete">永久删除</button>
+							</td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a class="btn btn-success" href="{:U('User/index')}">返回</a>
+	</div>
+	<script type="text/javascript">
+		function sure(){
+			var e = confirm('确定永久删除该用户?');
+			if(!e) return false;
+			else return true;
+		}
+	</script>

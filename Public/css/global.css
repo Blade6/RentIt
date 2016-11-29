@@ -1,0 +1,45 @@
+.sub-menu {
+	list-style: none;
+}
+
+.sub-menu li {
+	height: 30px;
+	line-height: 30px;	
+}
+
+.sub-li {
+	border-bottom: 1px solid #428BCA;
+}
+
+.sub-item {
+	display: block;
+	height: 30px;
+	text-decoration: none;
+}
+
+/*去掉鼠标悬停时的下划线*/
+.sub-item:hover {
+	text-decoration: none;
+}
+
+.BeInCenter {
+	padding-left: 20px;
+}
+
+/*用户头像*/
+.user-pic {
+	width: 140px;
+	height: 140px;
+}
+
+.car-pic {
+	width: 200px;
+	height: 125px;
+}
+.personality {
+	width: 500px;
+}
+
+.rentInfo {
+	width: 500px;
+}

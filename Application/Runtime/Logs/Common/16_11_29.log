@@ -1,0 +1,27 @@
+[ 2016-11-29T10:08:03+08:00 ] ::1 /RCW_MVC/index.php/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001541s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-29T11:56:00+08:00 ] ::1 /RCW_MVC/index.php/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000877s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-29T15:53:52+08:00 ] ::1 /RCW_MVC/index.php/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-29T16:04:41+08:00 ] ::1 /RCW_MVC/index.php/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000404s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-29T20:04:40+08:00 ] ::1 /RCW_MVC/index.php/favicon.ico
+ERR: 无法加载模块:Favicon
+

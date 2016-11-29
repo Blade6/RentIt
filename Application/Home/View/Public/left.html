@@ -1,0 +1,70 @@
+	<php>
+      @session_start();
+
+      $time=10*60;
+      @setcookie(session_name(),session_id(),time()+$time,"/");
+
+      if(empty($_SESSION["user"])){
+        echo "<script>alert('非法操作!');</script>";
+        echo "<script>window.location='__APP__/Home/Index/index';</script>";
+      }
+    </php>
+	<div class="MyMenu">
+		<div class="MyTitle">
+			<h3 class="MyRentit">My RentIt</h3>
+		</div>
+		<div class="MyItem">
+			<ul class="Item-nav list-unstyled">
+				<li class="li">
+					<a class="nav-a" href="{:U('Me/index')}" id="index">
+						<span class="glyphicon glyphicon-home"> 欢迎页</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="{:U('Me/order')}" id="order">
+						<span class="glyphicon glyphicon-th"> 我的订单</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="{:U('Me/info')}" id="info">
+						<span class="glyphicon glyphicon-user"> 我的资料</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="{:U('Me/accident')}" id="accident">
+						<span class="glyphicon glyphicon-exclamation-sign"> 违章记录</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="{:U('Me/message')}" id="message">
+						<span class="glyphicon glyphicon-edit"> 我的留言</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		$(document).ready(
+			function(){
+				switch("__SELF__"){
+					case "{:U('Me/index')}":
+						$("#index").addClass("nav-active");
+						break;
+					case "{:U('Me/order')}":
+						$("#order").addClass("nav-active");
+						break;
+					case "{:U('Me/info')}":
+						$("#info").addClass("nav-active");
+						break;
+					case "{:U('Me/accident')}":
+						$("#accident").addClass("nav-active");
+						break;
+					case "{:U('Me/message')}":
+						$("#message").addClass("nav-active");
+						break;
+					default:
+						break;
+				}
+			}
+		);
+	</script>

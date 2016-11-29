@@ -1,0 +1,31 @@
+	<h2 class="sub-header">车辆管理</h2>
+	<h3 class="sub-header">高级管理</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>车牌号码</th>
+				<th>单日租金</th>
+				<th>车辆价值</th>
+				<th>是否被租</th>
+				<th>出租次数</th>
+				<th>修改</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Car/superManage')}" method="post" onsubmit="return sure()">
+						<tr>
+							<td>
+								{$data.license_no}
+								<input type="hidden" value="{$data.license_no}" name="license_no">
+							</td>
+							<td>{$data.rent_fare}</td>
+							<td>{$data.value}</td>
+							<td>{$data.flag}</td>
+							<td>{$data.num}</td>
+							<td><button class="btn btn-success" type="submit" name="edit_2">修改</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

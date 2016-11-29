@@ -1,0 +1,50 @@
+	<h2 class="sub-header">租车管理</h2>
+	<div class="BeInCenter">
+		<form action="{:U('Rent/search')}" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label>UserId:</label>
+				<input type="text" name="userId">
+				<button class="btn btn-primary" type="submit" name="search_1">查询</button>
+				<label>License:</label>
+				<input type="text" name="license_no">
+				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
+				<label>Date:</label>
+				<input type="text" name="date">
+				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>UserId</th>
+				<th>License</th>
+				<th>Date</th>
+				<th>订单状态</th>
+				<th>押金</th>
+				<th>支付押金</th>
+				<th>取车日期</th>
+				<th>Edit</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Rent/manage')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.user_id}</td>
+							<td>{$data.license_no}</td>
+							<td>{$data.date}</td>
+							<td>{$data.flag}</td>
+							<td>{$data.guarantee_deposit}</td>
+							<td>{$data.g_1_flag}</td>
+							<td>{$data.draw_date}</td>
+							<td><button class="btn btn-success" type="submit" name="edit_1">修改</button></td>
+							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

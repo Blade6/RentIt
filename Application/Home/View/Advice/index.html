@@ -1,0 +1,29 @@
+	<div class="container">
+		<div class="toSay">
+			<a class="btn btn-primary" href="#say">我要留言</a>
+		</div>
+		<volist name="advices" id="data">
+			<!-- 写在内部的css样式是最高级别的，这样能取代bootstrap的设定。 -->
+			<dl class="dl-horizontal" style="margin-bottom: 0px;">
+				<dt style="text-align: center;">
+					<div>
+						<img src="__PUBLIC__/user_pics/{$data.picture}" class="img-thumbnail user-pic">
+						<p>{$data.username}</p>
+					</div>
+				</dt>
+				<dd>
+					<div>
+						<p class="words">{$data.content}</p>
+					</div>
+				</dd>
+			</dl>
+			<p class="text-right"><small>{$floor++}楼 {$data.date} {$data.time}</small></p>
+			<hr style="margin-top: 10px;margin-bottom: 10px;">
+		</volist>
+		<form action="{:U('Advice/index')}" method="post" role="form">
+			<a name="say" class="say"><strong>在这里发表您的意见:</strong></a>
+			<textarea class="form-control" rows="3" placeholder="不要超过140个字" name="words"></textarea>
+			<button type="submit" class="btn btn-success btn-top" name="submit">发表</button>
+			<button type="reset" class="btn btn-default btn-top">重置</button>
+		</form>
+	</div>

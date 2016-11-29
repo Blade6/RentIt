@@ -1,0 +1,40 @@
+	<h2 class="sub-header">用户管理</h2>
+	<h3 class="sub-header">一般管理</h3>
+	<div class="BeInCenter">
+		<form action="{:U('User/search')}" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label>Name:</label>
+				<input type="text" name="Name">
+				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>UserId</th>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>Phone Number</th>
+				<th>Edit</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('User/generalManage')}" method="post">
+						<tr>
+							<td>{$data.identity}</td>
+							<td>{$data.name}</td>
+							<td>{$data.gender}</td>
+							<td>{$data.age}</td>
+							<td>{$data.phone_num}</td>
+							<td>
+								<input type="hidden" value="{$data.identity}" name="identity">								
+								<button class="btn btn-success" type="submit" name="edit_1">修改</button>
+							</td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

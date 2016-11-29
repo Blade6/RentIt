@@ -1,0 +1,13 @@
+//因为用户的密码进行了md5 32位加密之后才存储于数据库中，所以此处记录相关用户密码数据。
+
+Root:
+	PWD:test
+
+Benjamin:
+	PWD:benjamin
+
+Shelly:
+	ID:shelly
+
+Cooper:
+	ID:cooper

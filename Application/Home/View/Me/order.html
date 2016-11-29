@@ -1,0 +1,39 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>我的订单</h3>
+			<table class="table table-striped">
+				<thead>
+					<th>车牌号码</th>
+					<th>租车时间</th>
+					<th>取车时间</th>
+					<th>还车时间</th>
+					<th>押金</th>
+					<th>租金</th>
+					<th>订单状态</th>
+				</thead>
+				<tbody>
+					<volist name="order" id="data">
+						<tr>
+							<td>{$data.license_no}</td>
+							<td>{$data.date}</td>
+							<td>{$data.draw_date}</td>
+							<td>{$data.return_date}</td>
+							<td>{$data.guarantee_deposit}</td>
+							<td>{$data.fare}</td>
+							<td>
+								<php>
+									if(!$data["flag"]) echo "处理中";
+									else if(empty($data["return_date"])) echo "租车中";
+									else echo "已完成";
+								</php>
+							</td>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

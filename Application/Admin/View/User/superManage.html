@@ -1,0 +1,50 @@
+	<h2 class="sub-header">用户管理</h2>
+	<h3 class="sub-header">高级管理</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>用户</th>
+				<th>是否租车</th>
+				<th>核验情况</th>
+				<th>肇事数量</th>
+				<th>编辑</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('User/superManage')}" method="post">
+						<tr>
+							<th>{$data.identity}</th>
+							<td>
+								<php>
+									if(!$data["flag"]) echo "否";
+									else echo "是";
+								</php>
+							</td>
+							<td>
+								<php>
+									switch($data["checked"]){
+										case 1:
+											echo "已核验";
+											break;
+										case 0:
+											echo "核验中";
+											break;
+										case -1:
+											echo "未核验";
+											break;
+										default:
+											break;
+									}
+								</php>
+							</td>
+							<td>{$data.accident_num}</td>
+							<td>
+								<input type="hidden" value="{$data.identity}" name="identity">								
+								<button class="btn btn-success" type="submit" name="edit_2">修改</button>
+							</td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

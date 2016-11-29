@@ -1,0 +1,36 @@
+	<h2 class="sub-header">留言管理</h2>
+	<h3 class="sub-header">查询结果:</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>UserID</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Content</th>
+				<th>Action</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Message/delete')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.user_id}</td>
+							<td>{$data.date}</td>
+							<td>{$data.time}</td>
+							<td>{$data.content}</td>
+							<php>
+								if($data["flag"]) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
+								else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>";
+							</php>
+							<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a class="btn btn-success" href="{:U('Message/index')}">返回</a>
+	</div>

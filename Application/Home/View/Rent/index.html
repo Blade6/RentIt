@@ -1,0 +1,41 @@
+<div class="container">
+	<form action="{:U('Rent/index')}" method="post" role="form">
+		<div class="wholeParent btn-top">
+			<p class="p-info p-right">取车时间</p>
+			<input class="p-info p-bg-right" type="date" value="{$today}" min="{$today}" max="{$twoWeeksLater}" name="draw_date">
+			<p class="p-info p-right">租期</p>
+			<input class="p-info" type="number" min="1" max="90" value="1" name="days">
+			<a class="btn btn-primary renew" href="{:U('Rent/index')}">刷新库存车辆</a>
+		</div>
+		<div class="bodyPart">
+			<ul class="list-unstyled">
+				<volist name="cars" id="cars">
+					<li>
+						<div class="carLeft">
+							<img class="carImg" src="__PUBLIC__/{$cars.picture}">
+						</div>
+						<div class="carMidLeft">
+							<ul class="list-unstyled ul-top center">
+								<li class="li-bottom"><span class="carInfo">{$cars.type}</span></li>
+								<li class="li-bottom"><span class="carInfo">{$cars.brand}</span></li>
+								<li><span class="carInfo">{$cars.seat_number}人座</span></li>
+							</ul>
+						</div>
+						<div class="carMidRight">
+							<div class="ul-top center carPrice">
+								<p>¥{$cars.rent_fare}/天</p>
+								<p>押金:¥<php>echo $cars["value"]/10;</php></p>
+							</div>
+						</div>
+						<div class="carRight">
+							<button class="btn btn-primary ul-top" type="submit" value="{$cars.license_no}" name="submit">租车</button>
+						</div>
+					</li>
+				</volist>
+			</ul>
+		</div>
+	</form>
+	<div class="sidebar">
+		<include file="Public/right" />
+	</div>
+</div>

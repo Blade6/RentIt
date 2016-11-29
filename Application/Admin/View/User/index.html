@@ -1,0 +1,49 @@
+	<h2 class="sub-header">用户管理</h2>
+	<div class="BeInCenter">
+		<form action="{:U('User/search')}" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label>UserID:</label>
+				<input type="text" name="userID">
+				<button class="btn btn-primary" type="submit" name="search_1">查询</button>
+				<label>UserName:</label>
+				<input type="text" name="userName">
+				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>UserId</th>
+				<th>UserName</th>
+				<th>Password</th>
+				<th>Picture</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('User/delete')}" method="post" onsubmit="return sure()">
+						<tr>
+							<td>
+								{$data.identity}
+								<input type="hidden" value="{$data.identity}" name="identity">
+							</td>
+							<td>{$data.username}</td>
+							<td>{$data.password}</td>
+							<td><img class="user-pic" src="__PUBLIC__/user_pics/{$data.picture}"></td>
+							<td>								
+								<button class="btn btn-danger" type="submit" name="delete">永久删除</button>
+							</td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+		function sure(){
+			var e = confirm('确定永久删除该用户?');
+			if(!e) return false;
+			else return true;
+		}
+	</script>

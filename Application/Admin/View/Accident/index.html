@@ -1,0 +1,45 @@
+	<h2 class="sub-header">事故管理</h2>
+	<div class="BeInCenter">
+		<form action="{:U('Accident/search')}" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label>UserID:</label>
+				<input type="text" name="userID">
+				<button class="btn btn-primary" type="submit" name="search_1">查询</button>
+				<label>车牌号:</label>
+				<input type="text" name="license_no">
+				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
+				<label>Date:</label>
+				<input type="text" name="date">
+				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
+				<a class="btn btn-default" href="{:U('Admin/add')}">添加条目</a>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>UserID</th>
+				<th>License</th>
+				<th>Date</th>
+				<th>Place</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Accident/delete')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.user_id}</td>
+							<td>{$data.license_no}</td>
+							<td>{$data.date}</td>
+							<td>{$data.place}</td>
+							<td><a class="btn btn-success" href="{:U('Accident/edit')}">修改</a></td>
+							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

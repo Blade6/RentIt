@@ -1,0 +1,35 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>我的留言</h3>
+			<table class="table table-striped">
+				<thead>
+					<th>Date</th>
+					<th>Time</th>
+					<th>Content</th>
+					<th>Action</th>
+					<th>DELETE!</th>
+				</thead>
+				<tbody>
+					<volist name="advice" id="data">
+						<form action="{:U('Me/delMsg')}" method="post">
+							<input type="hidden" value="{$data.id}" name="id">
+							<tr>
+								<td>{$data.date}</td>
+								<td>{$data.time}</td>
+								<td>{$data.content}</td>
+								<php>
+									if($data["flag"]) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
+									else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>";
+								</php>
+								<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
+							</tr>
+						</form>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
