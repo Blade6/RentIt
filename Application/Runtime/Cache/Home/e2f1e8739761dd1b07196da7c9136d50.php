@@ -4,11 +4,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
-	<title>租车网|注册</title>
-	<link rel="stylesheet" type="text/css" href="/RCW_MVC/Public/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/RCW_MVC/Public/css/MyCSS.css">
-	<link rel="stylesheet" type="text/css" href="/RCW_MVC/Public/css/register.css">
-	<script type="text/javascript" src="/RCW_MVC/Public/js/register.js"></script>
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="/RentIt/Public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/RentIt/Public/css/MyCSS.css">
+	<link rel="stylesheet" type="text/css" href="/RentIt/Public/css/register.css">
+	<script type="text/javascript" src="/RentIt/Public/js/register.js"></script>
 </head>
 <body>
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,7 +20,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo U('Index/index');?>">租车网</a>
+				<a class="navbar-brand" href="<?php echo U('Index/index');?>">RentIt</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RCW_MVC/index.php/Home/Index/register"){
+						switch("/RentIt/index.php/Home/Index/register"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -60,7 +60,7 @@
 				</ul>
 				<div class="navbar-right">
 					<div class="btn-top">
-						<?php @session_start(); $time=5*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RCW_MVC/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RCW_MVC/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RCW_MVC/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RCW_MVC/index.php/Home/Index/register\">注册</a>"; } ?>
+						<?php session('[start]'); $time=10*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RentIt/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RentIt/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RentIt/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RentIt/index.php/Home/Index/register\">注册</a>"; } ?>
 					</div>
 				</div>				
 			</div><!--/.nav-collapse -->
@@ -114,10 +114,10 @@
 				<label class="col-sm-1 control-label">性别</label>
 				<div class="col-sm-10">
 					<label>
-						<input type="radio" name="gender" value="male">男
+						<input type="radio" name="gender" value="男">男
 					</label>
 					<label>
-						<input type="radio" name="gender" value="female">女
+						<input type="radio" name="gender" value="女">女
 					</label>
 				</div>
 			</div>
@@ -146,9 +146,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
 	
 
 	<footer>

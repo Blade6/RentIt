@@ -11,17 +11,17 @@
     <title><?php echo ($title); ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/RCW_MVC/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- 自定义CSS -->
-    <link href="/RCW_MVC/Public/css/MyCSS.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/MyCSS.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/RCW_MVC/Public/js/ie-emulation-modes-warning.js"></script>
+    <script src="/RentIt/Public/js/ie-emulation-modes-warning.js"></script>
 
     <!-- JQuery文件 -->
-    <script src="/RCW_MVC/Public/js/jquery-3.1.1.min.js"></script>
+    <script src="/RentIt/Public/js/jquery-3.1.1.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,7 +54,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RCW_MVC/index.php/Home/Me/message.html"){
+						switch("/RentIt/index.php/Home/Me/message.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -79,7 +79,7 @@
 				</ul>
 				<div class="navbar-right">
 					<div class="btn-top">
-						<?php @session_start(); $time=5*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RCW_MVC/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RCW_MVC/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RCW_MVC/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RCW_MVC/index.php/Home/Index/register\">注册</a>"; } ?>
+						<?php session('[start]'); $time=10*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RentIt/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RentIt/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RentIt/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RentIt/index.php/Home/Index/register\">注册</a>"; } ?>
 					</div>
 				</div>				
 			</div><!--/.nav-collapse -->
@@ -87,7 +87,7 @@
 	</nav>
 <br>
 <div class="container Min-height">
-		<?php @session_start(); $time=10*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["user"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RCW_MVC/index.php/Home/Index/index';</script>"; } ?>
+		<?php @session_start(); $time=10*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["user"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Home/Index/index';</script>"; } ?>
 	<div class="MyMenu">
 		<div class="MyTitle">
 			<h3 class="MyRentit">My RentIt</h3>
@@ -125,7 +125,7 @@
 	<script>
 		$(document).ready(
 			function(){
-				switch("/RCW_MVC/index.php/Home/Me/message.html"){
+				switch("/RentIt/index.php/Home/Me/message.html"){
 					case "<?php echo U('Me/index');?>":
 						$("#index").addClass("nav-active");
 						break;
@@ -156,7 +156,6 @@
 					<th>Time</th>
 					<th>Content</th>
 					<th>Action</th>
-					<th>DELETE!</th>
 				</thead>
 				<tbody>
 					<?php if(is_array($advice)): $i = 0; $__LIST__ = $advice;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><form action="<?php echo U('Me/delMsg');?>" method="post">
@@ -165,8 +164,9 @@
 								<td><?php echo ($data["date"]); ?></td>
 								<td><?php echo ($data["time"]); ?></td>
 								<td><?php echo ($data["content"]); ?></td>
-								<?php if($data["flag"]) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>"; else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>"; ?>
-								<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
+								<td>
+									<?php if($data["flag"]==0) echo "<button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button>"; else echo "<button class=\"btn btn-primary\" type=\"submit\" name=\"appear\">恢复</button>"; ?>
+								</td>
 							</tr>
 						</form><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
@@ -178,9 +178,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
 	
 
 	<footer>

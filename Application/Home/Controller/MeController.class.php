@@ -57,7 +57,7 @@ class MeController extends Controller {
 		}
 		else if(isset($_POST["submit3"])){
 			$me = new MeEvent();
-			$flag = $me->uploadPic();
+			$flag = $me->uploadPic(I('session.user'),$_FILES["user-head"]);
 			if(!$flag){
 				echo "<script>alert('上传失败!');</script>";
 				$this->display();
@@ -95,34 +95,18 @@ class MeController extends Controller {
 
 	public function delMsg(){
 		$me = new MeEvent();
-		if(isset($_POST["delete"])){
-			$flag = $me->deleteAdvice(I('post.id'));
-			if(!$flag){
-				echo "<script>alert('删除失败!');</script>";
-				$this->redirect('Me/message', '', 1, '页面跳转中...');
-			}
-			else $this->redirect('Me/message', '', 0, '页面跳转中...');
-		}
-		else if(isset($_POST["back"])){
-			$flag = $me->backAdvice(I('post.id'));
-			if(!$flag){
-				echo "<script>alert('恢复失败!');</script>";
-				$this->redirect('Me/message', '', 1, '页面跳转中...');
-			}
-			else $this->redirect('Me/message', '', 0, '页面跳转中...');
-		}
-		else if(iset($_POST["serious"])){
-			$flag = $me->delAdviceEternally(I('post.id'));
-			if(!$flag){
-				echo "<script>alert('永久删除失败!');</script>";
-				$this->redirect('Me/message', '', 1, '页面跳转中...');
-			}
-			else $this->redirect('Me/message', '', 0, '页面跳转中...');
-		}
+		if(isset($_POST["delete"])) $flag = $me->deleteAdvice(I('post.id'));
+		else if(isset($_POST["appear"])) $flag = $me->regainAdvice(I('post.id'));
 		else{
 			echo "<script>alert('非法登录!');</script>";
 			$this->redirect('Me/message', '', 1, '页面跳转中...');
 		}
+
+		if(!$flag){
+			echo "<script>alert('操作失败!');</script>";
+			$this->redirect('Me/message', '', 1, '页面跳转中...');
+		}
+		else $this->redirect('Me/message', '', 0, '页面跳转中...');
 	}
 
 }

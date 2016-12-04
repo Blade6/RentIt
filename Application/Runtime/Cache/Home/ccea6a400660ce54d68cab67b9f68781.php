@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
 	<title>登录</title>
-	<link rel="stylesheet" type="text/css" href="/RCW_MVC/Public/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/RCW_MVC/Public/css/login.css">
+	<link rel="stylesheet" type="text/css" href="/RentIt/Public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/RentIt/Public/css/login.css">
 </head>
 <body>
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,7 +33,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RCW_MVC/index.php/Home/Index/login"){
+						switch("/RentIt/index.php/Home/Index/login"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -58,7 +58,7 @@
 				</ul>
 				<div class="navbar-right">
 					<div class="btn-top">
-						<?php @session_start(); $time=5*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RCW_MVC/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RCW_MVC/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RCW_MVC/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RCW_MVC/index.php/Home/Index/register\">注册</a>"; } ?>
+						<?php session('[start]'); $time=10*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RentIt/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RentIt/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RentIt/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RentIt/index.php/Home/Index/register\">注册</a>"; } ?>
 					</div>
 				</div>				
 			</div><!--/.nav-collapse -->
@@ -66,7 +66,7 @@
 	</nav>
 	<div class="container">
 		<div class="center">
-			<img src="/RCW_MVC/Public/image/car.png" alt="" width="100px">
+			<img src="/RentIt/Public/image/car.png" alt="" width="100px">
 		</div>
 		<form class="form-signin" role="form" action="<?php echo U('Index/login');?>" method="post">
 			<h2 align="center">登录租车网</h2>
@@ -80,9 +80,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
 	
 
 	<footer>

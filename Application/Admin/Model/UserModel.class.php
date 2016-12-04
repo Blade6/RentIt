@@ -56,7 +56,12 @@ class UserModel extends Model{
 	}
 
 	public function searchByUserName($userName){
-		$map['username'] = $userName;
+		$map['username'] = array('like', '%'.$userName.'%');
+		return $this->user->where($map)->select();
+	}
+
+	public function searchByName($name){
+		$map['name'] = array('like', '%'.$name.'%');
 		return $this->user->where($map)->select();
 	}
 

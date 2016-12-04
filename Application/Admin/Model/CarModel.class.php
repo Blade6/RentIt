@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Model;
 use Think\Model;
+use Think\Upload;
 use Admin\Event\DeleteEvent;
 class CarModel extends Model {
 	private $car;
@@ -18,12 +19,43 @@ class CarModel extends Model {
 		return $this->car->where($map)->find();
 	}
 
+	public function add($license_no, $type, $brand, $seat_number, $color, $rent_fare, $value){
+		$data['license_no'] = $license_no;
+		$data['type'] = $type;
+		$data['brand'] = $brand;
+		$data['seat_number'] = $seat_number;
+		$data['color'] = $color;
+		$data['rent_fare'] = $rent_fare;
+		$data['value'] = $value;
+
+		$this->car->create($data);
+		if(!$this->car->add($data)) return false;
+		return true;
+	}
+
 	public function editBaseInfo($license_no, $type, $brand, $seat_number, $color){
 		$data['license_no'] = $license_no;
 		$data['type'] = $type;
 		$data['brand'] = $brand;
 		$data['seat_number'] = $seat_number;
 		$data['color'] = $color;
+		if(!$this->car->data($data)->save()) return false;
+		return true;
+	}
+
+	public function editCarPic($license_no, $photo){
+		$upload  = new Upload();
+		$upload->maxSize =  1048576;//设置上传文件大小为1M
+		$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
+		$upload->rootPath = 'Public/pictures/';
+		$upload->savePath = '';
+		$upload->saveName = array('uniqid','');
+		$upload->autoSub =  false;
+		$info  = $upload->uploadOne($photo);
+		if(!$info) return false;
+		
+		$data['license_no'] = $license_no;
+		$data['picture'] = $info["savename"];
 		if(!$this->car->data($data)->save()) return false;
 		return true;
 	}
@@ -48,5 +80,20 @@ class CarModel extends Model {
 		$flag = $this->car->delete($license_no);
 		if($flag!==false) return true;
 		return false;
+	}
+
+	public function searchByLicense($license_no){
+		$map['license_no'] = $license_no;
+		return $this->car->where($map)->select();
+	}
+
+	public function searchByType($type){
+		$map['type'] = $type;
+		return $this->car->where($map)->select();
+	}
+
+	public function searchByBrand($brand){
+		$map['brand'] = array('like','%'.$brand.'%');
+		return $this->car->where($map)->select();
 	}
 }

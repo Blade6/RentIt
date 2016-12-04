@@ -11,6 +11,7 @@
 				<label>品牌:</label>
 				<input type="text" name="brand">
 				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
+				<a class="btn btn-default" href="{:U('Car/add')}">添加车辆</a>
 			</div>
 		</form>
 	</div>
@@ -38,7 +39,7 @@
 							<td>{$data.brand}</td>
 							<td>{$data.seat_number}</td>
 							<td>{$data.color}</td>
-							<td><img class="car-pic" src="__PUBLIC__/{$data.picture}"></td>
+							<td><img class="car-pic" src="__PUBLIC__/pictures/{$data.picture}"></td>
 							<td><button class="btn btn-success" type="submit" name="edit_1">修改</button></td>
 							<td><button class="btn btn-danger" type="submit" name="delete" onclick="return sure()">永久删除</button></td>
 						</tr>

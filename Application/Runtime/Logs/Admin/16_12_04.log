@@ -1,0 +1,64 @@
+[ 2016-12-04T14:46:01+08:00 ] ::1 /RentIt/index.php/Admin/Accident/edit/id/1/license_no/YueA12345/date/2014-07-31/place/Guangzhou+city+Panyu+district.html
+ERR: 参数错误或者未定义:rentid
+
+[ 2016-12-04T14:47:19+08:00 ] ::1 /RentIt/index.php/Admin/Accident/edit/id/1/license_no/YueA12345/date/2014-07-31/place/Guangzhou+city+Panyu+district.html
+ERR: 参数错误或者未定义:rentid
+
+[ 2016-12-04T15:01:45+08:00 ] ::1 /RentIt/index.php/Admin/Rent/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-04T15:01:51+08:00 ] ::1 /RentIt/index.php/Admin/Rent/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-04T15:07:24+08:00 ] ::1 /RentIt/index.php/Admin/Rent/edit.html
+ERR: 参数错误或者未定义:id
+
+[ 2016-12-04T15:34:12+08:00 ] ::1 /RentIt/index.php/Admin/Rent/superMange.html
+ERR: 非法操作:superMange
+
+[ 2016-12-04T15:35:24+08:00 ] ::1 /RentIt/index.php/Admin/Rent/superMange.html
+ERR: 非法操作:superMange
+
+[ 2016-12-04T15:37:10+08:00 ] ::1 /RentIt/index.php/Admin/Rent/superMange.html
+ERR: 非法操作:superMange
+
+[ 2016-12-04T15:44:30+08:00 ] ::1 /RentIt/index.php/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000580s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000093s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005058s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005101s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000562s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000603s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000833s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000879s ]
+
+[ 2016-12-04T15:44:37+08:00 ] ::1 /RentIt/Admin/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000508s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000066s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006837s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006907s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000650s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000661s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000712s ]
+

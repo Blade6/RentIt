@@ -9,12 +9,12 @@ class AccidentModel extends Model{
 	}
 
 	public function readUser($userID){
-		$map['user_ID'] = $userID;
+		$map['userid'] = $userID;
 		return $this->accident->where($map)->select();
 	}
 
 	public function countAcci($userID){
-		$map['user_ID'] = $userID;
+		$map['userid'] = $userID;
 		return $this->accident->where($map)->count();
 	}
 }

@@ -9,7 +9,7 @@ class AdviceController extends Controller {
 				if(!I('session.shutup')){
 					$ad = new AdviceModel();
 					$flag = $ad->advise();
-					if(!flag) echo "<script>alert('发表失败!');</script>";
+					if(!$flag) echo "<script>alert('发表失败!');</script>";
 				}
 				else echo "<script>alert('您被禁言!');</script>";
 			}

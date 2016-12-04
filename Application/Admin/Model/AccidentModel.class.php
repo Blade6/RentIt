@@ -13,8 +13,8 @@ class AccidentModel extends Model {
 	}
 
 	public function add($rentID, $userId, $license_no, $date, $place=''){
-		$data['rent_id'] = $rentID;
-		$data['user_ID'] = $userId;
+		$data['rentid'] = $rentID;
+		$data['userid'] = $userId;
 		$data['license_no'] = $license_no;
 		$data['date'] = $date;
 		$data['place'] = $place;
@@ -29,27 +29,37 @@ class AccidentModel extends Model {
 		return false;
 	}
 
-	public function edit(){
-
+	public function edit($id,$rentid,$userid,$license_no,$date,$place){
+		$data['id'] = $id;
+		$data['rentid'] = $rentid;
+		$data['userid'] = $userid;
+		$data['license_no'] = $license_no;
+		$data['date'] = $date;
+		$data['place'] = $place;
+		if(!$this->accident->data($data)->save()) return false;
+		return true;
 	}
 
-	public function searchByUserId($userId){
-
+	public function searchByUserId($userid){
+		$condition['userid'] = $userid;
+		return $this->accident->where($condition)->select();
 	}
 
 	public function searchByLicense($license_no){
-		
+		$condition['license_no'] = $license_no;
+		return $this->accident->where($condition)->select();
 	}
 
 	public function searchByDate($date){
-
+		$condition['date'] = $date;
+		return $this->accident->where($condition)->select();
 	}
 
     /*
      * 永久删除某个用户的所有违章记录
      */
 	public function deleteUser($userId){
-		$map['user_ID'] = $userId;
+		$map['userid'] = $userId;
 		$flag = $this->accident->where($map)->delete();
 		if($flag!==false) return true;
 		return false;

@@ -17,15 +17,15 @@ class UserModel extends Model {
 		//判断是否能够登录
 		if($result){
 			//登陆成功，记录用户登录session值
-			$_SESSION["user"] = I('post.ID');
-			$_SESSION["username"] = $result["username"];
-			$_SESSION["password"] = $result["password"];
-			$_SESSION["picture"] = $result["picture"];
-			$_SESSION["name"] = $result["name"];
-			$_SESSION["gender"] = $result["gender"];
-			$_SESSION["age"] = $result["age"];
-			$_SESSION["phone_num"] = $result["phone_num"];
-			$_SESSION["shutup"] = $result["shutup"];
+			session('user',I('post.ID'));
+			session('username',$result["username"]);
+			session('password',$result["password"]);
+			session('picture',$result["picture"]);
+			session('name',$result["name"]);
+			session('gender',$result["gender"]);
+			session('age',$result["age"]);
+			session('phone_num',$result["phone_num"]);
+			session('shutup',$result["shutup"]);
 			//跳转到首页
 			return true;
 		}

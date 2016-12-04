@@ -1,0 +1,53 @@
+    <h2 class="sub-header">Accident管理</h2>
+    <h3 class="sub-header">查询结果:</h3>
+    <div class="table-reposive">
+        <table class="table table-striped">
+            <thead>
+                <th>id</th>
+                <th>rent_id</th>
+                <th>UserID</th>
+                <th>License</th>
+                <th>Date</th>
+                <th>Place</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <volist name="data" id="data">
+                    <form action="{:U('Accident/manage')}" method="post">
+                        <tr>
+                            <td>
+                                {$data.id}
+                                <input type="hidden" value="{$data.id}" name="id">
+                            </td>
+                            <td>
+                                {$data.rentid}
+                                <input type="hidden" value="{$data.rentid}" name="rentid">
+                            </td>
+                            <td>
+                                {$data.userid}
+                                <input type="hidden" value="{$data.userid}" name="userid">
+                            </td>
+                            <td>
+                                {$data.license_no}
+                                <input type="hidden" value="{$data.license_no}" name="license_no">
+                            </td>
+                            <td>
+                                {$data.date}
+                                <input type="hidden" value="{$data.date}" name="date">
+                            </td>
+                            <td>
+                                {$data.place}
+                                <input type="hidden" value="{$data.place}" name="place">
+                            </td>
+                            <td><button class="btn btn-success" type="submit" name="edit_0">修改</a></td>
+                            <td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+                        </tr>
+                    </form>
+                </volist>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="{:U('Accident/index')}">返回</a>
+    </div>

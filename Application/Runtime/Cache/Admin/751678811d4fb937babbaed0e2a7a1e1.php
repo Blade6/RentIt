@@ -11,17 +11,17 @@
     <title>RentIt</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/RCW_MVC/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/RCW_MVC/Public/css/dashboard.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/dashboard.css" rel="stylesheet">
 
     <!-- 自定义css -->
-    <link href="/RCW_MVC/Public/css/global.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/global.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/RCW_MVC/Public/js/ie-emulation-modes-warning.js"></script>
+    <script src="/RentIt/Public/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <?php if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RCW_MVC/index.php/Admin/Index/index';</script>"; } ?>
+    <?php session('[start]'); $time=15*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -46,7 +46,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="text-uppercase" href="<?php echo U('Index/index');?>"><?php echo (session('admin')); ?></a></li>
+            <li><a class="text-uppercase" href="<?php echo U('Admin/index');?>"><?php echo (session('admin')); ?></a></li>
             <li><a href="<?php echo U('Index/logout');?>">Logout</a></li>
             <li><a href="<?php echo U('Home/Index/index');?>">Go to RentIt</a></li>
           </ul>
@@ -92,19 +92,20 @@
           </ul>
         </div>
         <script type="text/javascript">
-          switch("/RCW_MVC/index.php/Admin/Rent/superManage.html"){
+          switch("/RentIt/index.php/Admin/Rent/superManage.html"){
             case "<?php echo U('Index/manage');?>":
               document.getElementById("Index").className="active";
               break;
 
             case "<?php echo U('User/generalManage');?>":
+            case "<?php echo U('User/edit');?>":
               document.getElementById("User").className="active";
               document.getElementById("userGeneral").className="sub-li";
               break;
             case "<?php echo U('User/superManage');?>":
+            case "<?php echo U('User/superEdit');?>":
               document.getElementById("userSuper").className="sub-li";
             case "<?php echo U('User/index');?>":
-            case "<?php echo U('User/edit');?>":
             case "<?php echo U('User/search');?>":
               document.getElementById("User").className="active";
               break;
@@ -113,12 +114,14 @@
             case "<?php echo U('Car/superEdit');?>":
               document.getElementById("carSuper").className="sub-li";
             case "<?php echo U('Car/index');?>":
+            case "<?php echo U('Car/add');?>":
             case "<?php echo U('Car/edit');?>":
             case "<?php echo U('Car/search');?>":
               document.getElementById("Car").className="active";
               break;
 
             case "<?php echo U('Rent/superManage');?>":
+            case "<?php echo U('Rent/superEdit');?>":
               document.getElementById("rentSuper").className="sub-li";
             case "<?php echo U('Rent/index');?>":
             case "<?php echo U('Rent/edit');?>":
@@ -160,7 +163,6 @@
 			<thead>
 				<th>id</th>
 				<th>还车日期</th>
-				<th>归还押金</th>
 				<th>缴纳金</th>
 				<th>收取缴纳金</th>
 				<th>总租金</th>
@@ -172,11 +174,14 @@
 						<tr>
 							<td><?php echo ($data["id"]); ?><input type="hidden" value="<?php echo ($data["id"]); ?>" name="id"></td>
 							<td><?php echo ($data["return_date"]); ?></td>
-							<td><?php echo ($data["g_2_flag"]); ?></td>
-							<td><?php echo ($data["penalty"]); ?></td>
-							<td><?php echo ($data["p_flag"]); ?></td>
-							<td><?php echo ($data["fare"]); ?></td>
-							<td><?php echo ($data["fare_flag"]); ?></td>
+							<td>¥<?php echo ($data["penalty"]); ?></td>
+							<td>
+								<?php if($data["p_flag"]) echo "是"; else echo "否"; ?>
+							</td>
+							<td>¥<?php echo ($data["fare"]); ?></td>
+							<td>
+								<?php if($data["fare_flag"]) echo "是"; else echo "否"; ?>
+							</td>
 							<td><button class="btn btn-success" type="submit" name="edit_2">修改</button></td>
 						</tr>
 					</form><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -190,10 +195,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/RCW_MVC/Public/js/jquery-3.1.1.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
-    <script src="/RCW_MVC/Public/js/docs.min.js"></script>
+    <script src="/RentIt/Public/js/jquery-3.1.1.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

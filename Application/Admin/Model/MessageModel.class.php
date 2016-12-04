@@ -21,7 +21,7 @@ class MessageModel extends Model {
 	 */
 	public function delete($id){
 		$data['id'] = $id;
-		$data['flag'] = true;
+		$data['flag'] = array('exp','flag+2');//flag = flag + 2
 		if(!$this->message->data($data)->save()) return false;
 		return true;
 	}
@@ -31,7 +31,7 @@ class MessageModel extends Model {
 	 */
 	public function back($id){
 		$data['id'] = $id;
-		$data['flag'] = false;
+		$data['flag'] = array('exp','flag-2');//flag = flag -2
 		if(!$this->message->data($data)->save()) return false;
 		return true;
 	}
@@ -46,7 +46,7 @@ class MessageModel extends Model {
 	}
 
 	public function searchByUserID($userId){
-		$map['user_ID'] = $userId;
+		$map['userid'] = $userId;
 		return $this->message->where($map)->select();
 	}
 
@@ -55,13 +55,19 @@ class MessageModel extends Model {
 		return $this->message->where($map)->select();
 	}
 
+	public function searchByContent($content){
+		$map['content'] = array('like', '%'.$content.'%');
+		return $this->message->where($map)->select();
+	}
+
 	/*
 	 * 永久删除某用户的所有留言
 	 */
 	public function deleteUser($userId){
-		$map['user_ID'] = $userId;
+		$map['userid'] = $userId;
 		$flag = $this->message->where($map)->delete();
-		if($flag!==false) return true;
-		return false;
+		if($flag===false) return false;
+		else if($flag===0) return 0;
+		else return 1;
 	}
 }

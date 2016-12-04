@@ -1,0 +1,15 @@
+[ 2016-11-30T14:27:04+08:00 ] ::1 /RentIt/index.php/favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-30T14:38:31+08:00 ] ::1 /RentIt/index.php/User/edit/userId/$data[
+ERR: 无法加载模块:User
+
+[ 2016-11-30T16:23:38+08:00 ] ::1 /RentIt/index.php/favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-30T16:24:05+08:00 ] ::1 /RentIt/index.php/favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2016-11-30T17:35:44+08:00 ] ::1 /RentIt/index.php/favicon.ico
+ERR: 无法加载模块:Favicon
+

@@ -12,11 +12,11 @@
     <title>Rent It</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/RCW_MVC/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/RCW_MVC/Public/js/ie-emulation-modes-warning.js"></script>
+    <script src="/RentIt/Public/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="/RCW_MVC/Public/css/index.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/index.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -54,7 +54,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RCW_MVC/index.php/Home/Index/index.html"){
+						switch("/RentIt/index.php/Index/index.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -79,7 +79,7 @@
 				</ul>
 				<div class="navbar-right">
 					<div class="btn-top">
-						<?php @session_start(); $time=5*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RCW_MVC/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RCW_MVC/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RCW_MVC/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RCW_MVC/index.php/Home/Index/register\">注册</a>"; } ?>
+						<?php session('[start]'); $time=10*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RentIt/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RentIt/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RentIt/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RentIt/index.php/Home/Index/register\">注册</a>"; } ?>
 					</div>
 				</div>				
 			</div><!--/.nav-collapse -->
@@ -153,7 +153,7 @@
           <h2 class="featurette-heading"><span class="text-muted">第一步:</span>登录您的帐户</h2>
         </div>
         <div class="col-md-5">
-          <img src="/RCW_MVC/Public/image/login.png" class="featurette-image img-responsive" alt="Generic placeholder image">
+          <img src="/RentIt/Public/image/login.png" class="featurette-image img-responsive" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -161,7 +161,7 @@
 
       <div class="row featurette">
         <div class="col-md-9">
-          <img src="/RCW_MVC/Public/image/rent.png" class="featurette-image img-responsive" alt="Generic placeholder image" style="width: 829px;height: 626px;">
+          <img src="/RentIt/Public/image/rent.png" class="featurette-image img-responsive" alt="Generic placeholder image" style="width: 829px;height: 626px;">
         </div>
         <div class="col-md-3">
           <h2 class="featurette-heading"><span class="text-muted">第二步:</span>选择时间和车辆</h2>
@@ -176,7 +176,7 @@
           <p class="lead">确认订单后，请尽快前往本公司支付押金。</p>
         </div>
         <div class="col-md-8">
-          <img src="/RCW_MVC/Public/image/done.png" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image" style="width: 784px;height: 576px;">
+          <img src="/RentIt/Public/image/done.png" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image" style="width: 784px;height: 576px;">
         </div>
       </div>
 
@@ -191,9 +191,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
 	
 
 	<footer>
@@ -208,10 +208,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/RCW_MVC/Public/js/jquery-3.1.1.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
-    <script src="/RCW_MVC/Public/js/docs.min.js"></script>
+    <script src="/RentIt/Public/js/jquery-3.1.1.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

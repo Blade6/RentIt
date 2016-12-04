@@ -16,12 +16,13 @@
 					<form action="{:U('Message/delete')}" method="post">
 						<tr>
 							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
-							<td>{$data.user_id}</td>
+							<td>{$data.userid}</td>
 							<td>{$data.date}</td>
 							<td>{$data.time}</td>
 							<td>{$data.content}</td>
 							<php>
-								if($data["flag"]) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
+								if($data["flag"]==2) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
+								else if($data["flag"]==3) echo "<td><button class=\"btn btn-info\" type=\"submit\" name=\"back\">恢复</button></td>";
 								else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>";
 							</php>
 							<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
@@ -32,5 +33,5 @@
 		</table>
 	</div>
 	<div>
-		<a class="btn btn-success" href="{:U('Message/index')}">返回</a>
+		<a class="btn btn-primary" href="{:U('Message/index')}">返回</a>
 	</div>

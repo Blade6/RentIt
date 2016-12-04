@@ -48,11 +48,9 @@
 				<div class="navbar-right">
 					<div class="btn-top">
 						<php>
-							@session_start();
-
-							$time=5*60;
-							@setcookie(session_name(),session_id(),time()+$time,"/");
-
+							session('[start]');
+							$time=10*60;
+							setcookie(session_name(),session_id(),time()+$time,"/");
 
 							if(!empty($_SESSION["user"])){
 								echo "<a class=\"btn btn-primary btn-right\" href=\"__APP__/Home/Me/index\">";

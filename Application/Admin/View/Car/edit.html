@@ -1,0 +1,55 @@
+	<h2 class="sub-header">车辆管理</h2>
+	<div class="BeInCenter">
+		<h3>修改License={$data.license_no}的记录:</h3>
+		<!-- 基本信息 -->
+		<div class="baseInfo">
+			<div class="content">
+				<form class="form-horizontal" action="{:U('Car/edit')}" method="post" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Type</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="type" value="{$data.type}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Brand</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="brand" value="{$data.brand}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Seat</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="seat_number" value="{$data.seat_number}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Color</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="color" value="{$data.color}">
+						</div>
+					</div>
+					<div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					    	<input type="hidden" name="license_no" value="{$data.license_no}">
+					    	<button type="submit" class="btn btn-success" name="edit_11">修改</button>
+					    </div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 修改图片 -->
+		<div class="changeCarPic">
+			<div>
+				<label>当前图片:</label><br>
+				<img src="__PUBLIC__/pictures/{$data.picture}" class="car-pic-lg">
+			</div>
+			<br>
+			<form action="{:U('Car/edit')}" method="post" enctype='multipart/form-data' role="form">
+				<label>更换图片:</label>
+				<input type="file" name="car-img">
+				<input type="hidden" name="license_no" value="{$data.license_no}">
+				<button class="btn btn-success btn-top" type="submit" name="changePic">确定</button>
+			</form>
+		</div>
+	</div>

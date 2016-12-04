@@ -32,6 +32,10 @@
 
   <body>
     <php>
+      session('[start]');
+      $time=15*60;
+      setcookie(session_name(),session_id(),time()+$time,"/");
+
       if(empty($_SESSION["admin"])){
         echo "<script>alert('非法操作!');</script>";
         echo "<script>window.location='__APP__/Admin/Index/index';</script>";
@@ -51,7 +55,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="text-uppercase" href="{:U('Index/index')}">{$Think.session.admin}</a></li>
+            <li><a class="text-uppercase" href="{:U('Admin/index')}">{$Think.session.admin}</a></li>
             <li><a href="{:U('Index/logout')}">Logout</a></li>
             <li><a href="{:U('Home/Index/index')}">Go to RentIt</a></li>
           </ul>
@@ -103,13 +107,14 @@
               break;
 
             case "{:U('User/generalManage')}":
+            case "{:U('User/edit')}":
               document.getElementById("User").className="active";
               document.getElementById("userGeneral").className="sub-li";
               break;
             case "{:U('User/superManage')}":
+            case "{:U('User/superEdit')}":
               document.getElementById("userSuper").className="sub-li";
             case "{:U('User/index')}":
-            case "{:U('User/edit')}":
             case "{:U('User/search')}":
               document.getElementById("User").className="active";
               break;
@@ -118,12 +123,14 @@
             case "{:U('Car/superEdit')}":
               document.getElementById("carSuper").className="sub-li";
             case "{:U('Car/index')}":
+            case "{:U('Car/add')}":
             case "{:U('Car/edit')}":
             case "{:U('Car/search')}":
               document.getElementById("Car").className="active";
               break;
 
             case "{:U('Rent/superManage')}":
+            case "{:U('Rent/superEdit')}":
               document.getElementById("rentSuper").className="sub-li";
             case "{:U('Rent/index')}":
             case "{:U('Rent/edit')}":

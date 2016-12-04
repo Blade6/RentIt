@@ -22,9 +22,7 @@ class IndexController extends Controller {
     }
 
     public function logout(){
-        session_start();
-
-        session_destroy();
+        session('[destroy]');
 
         $this->redirect('Index/index', '', 0, '页面跳转中...');
     }

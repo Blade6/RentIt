@@ -20,7 +20,12 @@
 							</td>
 							<td>{$data.rent_fare}</td>
 							<td>{$data.value}</td>
-							<td>{$data.flag}</td>
+							<td>
+								<php>
+									if(!$data["flag"]) echo "否";
+									else echo "是";
+								</php>
+							</td>
 							<td>{$data.num}</td>
 							<td><button class="btn btn-success" type="submit" name="edit_2">修改</button></td>
 						</tr>

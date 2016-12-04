@@ -11,17 +11,17 @@
     <title><?php echo ($title); ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/RCW_MVC/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- 自定义CSS -->
-    <link href="/RCW_MVC/Public/css/MyCSS.css" rel="stylesheet">
+    <link href="/RentIt/Public/css/MyCSS.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/RCW_MVC/Public/js/ie-emulation-modes-warning.js"></script>
+    <script src="/RentIt/Public/js/ie-emulation-modes-warning.js"></script>
 
     <!-- JQuery文件 -->
-    <script src="/RCW_MVC/Public/js/jquery-3.1.1.min.js"></script>
+    <script src="/RentIt/Public/js/jquery-3.1.1.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,7 +54,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RCW_MVC/index.php/Home/Help/principle.html"){
+						switch("/RentIt/index.php/Help/principle.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -79,7 +79,7 @@
 				</ul>
 				<div class="navbar-right">
 					<div class="btn-top">
-						<?php @session_start(); $time=5*60; @setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RCW_MVC/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RCW_MVC/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RCW_MVC/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RCW_MVC/index.php/Home/Index/register\">注册</a>"; } ?>
+						<?php session('[start]'); $time=10*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(!empty($_SESSION["user"])){ echo "<a class=\"btn btn-primary btn-right\" href=\"/RentIt/index.php/Home/Me/index\">"; echo $_SESSION["username"]."</a>"; echo "<a class=\"btn btn-default\" href=\"/RentIt/index.php/Home/Index/logout\">登出</a>"; } else{ echo "<a class=\"btn btn-default btn-right\" href=\"/RentIt/index.php/Home/Index/login\">登录</a>"; echo "<a class=\"btn btn-success\" href=\"/RentIt/index.php/Home/Index/register\">注册</a>"; } ?>
 					</div>
 				</div>				
 			</div><!--/.nav-collapse -->
@@ -107,9 +107,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/RCW_MVC/Public/js/bootstrap.min.js"></script>
+    <script src="/RentIt/Public/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/RCW_MVC/Public/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/RentIt/Public/js/ie10-viewport-bug-workaround.js"></script>
 	
 
 	<footer>

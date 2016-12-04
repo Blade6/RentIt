@@ -9,7 +9,7 @@
 				<input type="text" name="license_no">
 				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
 				<label>Date:</label>
-				<input type="text" name="date">
+				<input type="date" name="date">
 				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
 			</div>
 		</form>
@@ -23,7 +23,7 @@
 				<th>Date</th>
 				<th>订单状态</th>
 				<th>押金</th>
-				<th>支付押金</th>
+				<th>押金状态</th>
 				<th>取车日期</th>
 				<th>Edit</th>
 				<th>DELETE!</th>
@@ -33,12 +33,24 @@
 					<form action="{:U('Rent/manage')}" method="post">
 						<tr>
 							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
-							<td>{$data.user_id}</td>
+							<td>{$data.userid}</td>
 							<td>{$data.license_no}</td>
 							<td>{$data.date}</td>
-							<td>{$data.flag}</td>
-							<td>{$data.guarantee_deposit}</td>
-							<td>{$data.g_1_flag}</td>
+							<td>
+								<php>
+									if($data["flag"]==1) echo "成功";
+									else if($data["flag"]==0) echo "处理中";
+									else echo "失败";
+								</php>
+							</td>
+							<td>¥{$data.deposit}</td>
+							<td>
+								<php>
+									if($data["g_flag"]==1) echo "已支付";
+									else if($data["g_flag"]==2) echo "已归还";
+									else echo "未支付";
+								</php>
+							</td>
 							<td>{$data.draw_date}</td>
 							<td><button class="btn btn-success" type="submit" name="edit_1">修改</button></td>
 							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>

@@ -52,23 +52,22 @@ class MeEvent {
 		}
 	}
 
-	public function uploadPic(){
+	public function uploadPic($userId, $photo){
 		$upload  = new Upload();
 		$upload->maxSize =  1048576;//设置上传文件大小为1M
 		$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
 		$upload->rootPath = 'Public/user_pics/';
 		$upload->savePath = '';
 		//采用uniqid函数生成一个唯一的字符串序列
-		$PicName = array('uniqid','');
-		$upload->saveName = I('session.user').$PicName;
+		$upload->saveName = array('uniqid','');
 		//开启子目录保存
 		$upload->autoSub =  true;
-		$upload->subName = I('session.user');
-		$info  = $upload->uploadOne($_FILES["user-head"]);
+		$upload->subName = $userId;
+		$info  = $upload->uploadOne($photo);
 		if(!$info) return false;
 		else{
 			$user = new UserModel();
-			return $user->changePic(I('session.user'),$info['savename']);
+			return $user->changePic($userId,$info['savename']);
 		}
 	}
 
@@ -82,13 +81,9 @@ class MeEvent {
 		return $advice->delete($id);
 	}
 
-	public function backAdvice($id){
+	public function regainAdvice($id){
 		$advice = new AdviceModel();
-		return $advice->back($id);
+		return $advice->appear($id);
 	}
 
-	public function delAdviceEternally($id){
-		$advice = new AdviceModel();
-		return $advice->deleteForever($id);
-	}
 }

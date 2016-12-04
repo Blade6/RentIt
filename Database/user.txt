@@ -1,13 +1,21 @@
 //因为用户的密码进行了md5 32位加密之后才存储于数据库中，所以此处记录相关用户密码数据。
 
-Root:
+root:
+	ID:440221198806012104
 	PWD:test
 
 Benjamin:
+	ID:440221199506261917
 	PWD:benjamin
 
 Shelly:
+	ID:441520198403162016
 	ID:shelly
 
 Cooper:
+	ID:440221199505201918
 	ID:cooper
+
+//后台管理系统
+adminname:root
+password:test

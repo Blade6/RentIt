@@ -11,14 +11,11 @@ class AdminModel extends Model {
 	public function login($adminName, $passWord){
 		$map['adminname'] = $adminName;
 		$map['password'] = md5($passWord);
-		if(!$this->admin->where($map)->find()) return false;
+		$result = $this->admin->where($map)->find();
+		if(!$result) return false;
 		
-		session_start();
-      	$time=10*60;
-      	setcookie(session_name(),session_id(),time()+$time,"/");
-		
-		$_SESSION["admin"] = $adminName;
-		$_SESSION["password"] = $passWord;
+		session('admin',$adminName);
+		session('level',$result["level"]);
 		return true;
 	}
 
@@ -51,7 +48,8 @@ class AdminModel extends Model {
 	}
 
 	public function search($adminName){
-		$map['adminname'] = $adminName;
+		//模糊查询，匹配所有包含adminName子串的记录
+		$map['adminname'] = array('like', '%'.$adminName.'%');
 		return $this->admin->where($map)->select();
 	}
 }

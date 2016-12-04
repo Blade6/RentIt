@@ -6,6 +6,7 @@
 				<th>UserName</th>
 				<th>Shutup</th>
 				<th>Speak</th>
+				<th>DELETE</th>
 			</thead>
 			<tbody>
 				<volist name="data" id="data">
@@ -15,14 +16,15 @@
 							<td>{$data.username}</td>
 							<php>
 								if(!$data["shutup"]){
-									echo "<td><button class=\"btn btn-danger\" type=\"submit\" name=\"nospeak\">禁言</button></td>";
+									echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"nospeak\">禁言</button></td>";
 									echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"speak\" disabled=\"true\">解除禁言</button></td>";
 								}
 								else{
-									echo "<td><button class=\"btn btn-danger\" type=\"submit\" name=\"nospeak\" disabled=\"true\">禁言</button></td>";
+									echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"nospeak\" disabled=\"true\">禁言</button></td>";
 									echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"speak\">解除禁言</button></td>";
 								}
 							</php>
+							<td><button class="btn btn-danger" type="submit" name="delete">永久删除该用户的所有留言</button></td>
 						</tr>
 					</form>
 				</volist>

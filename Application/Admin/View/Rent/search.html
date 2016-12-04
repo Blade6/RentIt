@@ -1,0 +1,43 @@
+	<h2 class="sub-header">租车管理</h2>
+	<h3 class="sub-header">查询结果为:</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>UserId</th>
+				<th>License</th>
+				<th>Date</th>
+				<th>订单状态</th>
+				<th>取车日期</th>
+				<th>还车日期</th>
+				<th>Edit</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Rent/manage')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.userid}</td>
+							<td>{$data.license_no}</td>
+							<td>{$data.date}</td>
+							<td>
+								<php>
+									if($data["flag"]==1) echo "成功";
+									else if($data["flag"]==0) echo "处理中";
+									else echo "失败";
+								</php>
+							</td>
+							<td>{$data.draw_date}</td>
+							<td>{$data.return_date}</td>
+							<td><button class="btn btn-success" type="submit" name="edit_1">修改</button></td>
+							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a class="btn btn-primary" href="{:U('Rent/index')}">返回</a>
+	</div>

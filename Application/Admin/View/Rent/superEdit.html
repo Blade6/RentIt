@@ -1,0 +1,60 @@
+	<h2 class="sub-header">租车管理</h2>
+	<div class="BeInCenter">
+		<h3>修改id={$data.id}的记录:</h3>
+		<div class="content">
+			<form action="{:U('Rent/superEdit')}" method="post" class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">还车日期</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="date" name="return_date" value="{$data.return_date}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">缴纳金</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="number" name="penalty" value="{$data.penalty}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">收取缴纳金</label>
+					<div class="col-sm-10">
+						<php>
+							if(!$data["p_flag"]){
+								echo "<input type=\"radio\" name=\"p_flag\" value=\"1\">是";
+								echo "<input type=\"radio\" name=\"p_flag\" value=\"0\" checked=\"true\">否";
+							}else{
+								echo "<input type=\"radio\" name=\"p_flag\" value=\"1\" checked=\"true\">是";
+								echo "<input type=\"radio\" name=\"p_flag\" value=\"0\">否";
+							}
+						</php>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">总租金</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="number" name="fare" value="{$data.fare}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">支付租金</label>
+					<div class="col-sm-10">
+						<php>
+							if(!$data["fare_flag"]){
+								echo "<input type=\"radio\" name=\"fare_flag\" value=\"1\">是";
+								echo "<input type=\"radio\" name=\"fare_flag\"  value=\"0\" checked=\"true\">否";
+							}else{
+								echo "<input type=\"radio\" name=\"fare_flag\" checked=\"true\" value=\"1\">是";
+								echo "<input type=\"radio\" name=\"fare_flag\" value=\"0\">否";
+							}
+						</php>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<input type="hidden" name="id" value="{$data.id}">
+						<button class="btn btn-success" type="submit" name="submit">修改</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>

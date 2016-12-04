@@ -1,0 +1,45 @@
+	<h2 class="sub-header">车辆管理</h2>
+	<h3 class="sub-header">查询结果:</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>License</th>
+				<th>Type</th>
+				<th>Brand</th>
+				<th>Seat</th>
+				<th>Color</th>
+				<th>Picture</th>
+				<th>Edit</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Car/manage')}" method="post">
+						<tr>
+							<td>
+								{$data.license_no}
+								<input type="hidden" value="{$data.license_no}" name="license_no">
+							</td>
+							<td>{$data.type}</td>
+							<td>{$data.brand}</td>
+							<td>{$data.seat_number}</td>
+							<td>{$data.color}</td>
+							<td><img class="car-pic" src="__PUBLIC__/pictures/{$data.picture}"></td>
+							<td><button class="btn btn-success" type="submit" name="edit_1">修改</button></td>
+							<td><button class="btn btn-danger" type="submit" name="delete" onclick="return sure()">永久删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a class="btn btn-primary" href="{:U('Car/index')}">返回</a>
+	</div>
+	<script type="text/javascript">
+		function sure(){
+			var e = confirm('确定永久删除这辆车?');
+			if(!e) return false;
+			else return true;
+		}
+	</script>

@@ -38,15 +38,24 @@ class AdminController extends Controller{
 				),0, '页面跳转中...');
 		}
 		else if(isset($_POST["delete"])){
-			$admin = new AdminModel();
+			if(!I('session.level')){
+				echo "<script>alert('权限不够!');</script>";
+				$this->redirect('Admin/index', '', 1, '页面跳转中...');
+			}
+			$admin = D('admin');
 			$flag = $admin->delete(I('post.id'));
 			if(!$flag) echo "<script>alert('删除失败!');</script>";			
 		}
 		$this->redirect('Admin/index', '', 1, '页面跳转中...');
 	}
 
-	public function edit($id, $adminName, $password){
+	public function edit($id=0, $adminName='', $password=''){
 		if(isset($_POST["edit_1"])){
+			if(!I('session.level')&&(I('post.id')==1)){
+				echo "<script>alert('权限不够!');</script>";
+				$this->redirect('Admin/index', '', 1, '页面跳转中...');
+			}
+
 			$admin = new AdminModel();
 			$flag = $admin->edit(I('post.id'),I('post.adminName'),I('post.password'));
 			if(!$flag){

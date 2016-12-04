@@ -9,9 +9,9 @@
 				<input type="text" name="license_no">
 				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
 				<label>Date:</label>
-				<input type="text" name="date">
+				<input type="date" name="date">
 				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
-				<a class="btn btn-default" href="{:U('Admin/add')}">添加条目</a>
+				<a class="btn btn-default" href="{:U('Accident/add')}">添加条目</a>
 			</div>
 		</form>
 	</div>
@@ -19,6 +19,7 @@
 		<table class="table table-striped">
 			<thead>
 				<th>id</th>
+				<th>rentid</th>
 				<th>UserID</th>
 				<th>License</th>
 				<th>Date</th>
@@ -28,14 +29,33 @@
 			</thead>
 			<tbody>
 				<volist name="data" id="data">
-					<form action="{:U('Accident/delete')}" method="post">
+					<form action="{:U('Accident/manage')}" method="post">
 						<tr>
-							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
-							<td>{$data.user_id}</td>
-							<td>{$data.license_no}</td>
-							<td>{$data.date}</td>
-							<td>{$data.place}</td>
-							<td><a class="btn btn-success" href="{:U('Accident/edit')}">修改</a></td>
+							<td>
+								{$data.id}
+								<input type="hidden" value="{$data.id}" name="id">
+							</td>
+							<td>
+								{$data.rentid}
+								<input type="hidden" value="{$data.rentid}" name="rentid">
+							</td>
+							<td>
+								{$data.userid}
+								<input type="hidden" value="{$data.userid}" name="userid">
+							</td>
+							<td>
+								{$data.license_no}
+								<input type="hidden" value="{$data.license_no}" name="license_no">
+							</td>
+							<td>
+								{$data.date}
+								<input type="hidden" value="{$data.date}" name="date">
+							</td>
+							<td>
+								{$data.place}
+								<input type="hidden" value="{$data.place}" name="place">
+							</td>
+							<td><button class="btn btn-success" type="submit" name="edit_0">修改</a></td>
 							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
 						</tr>
 					</form>

@@ -1,0 +1,40 @@
+[ 2016-11-30T14:35:55+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:userId
+
+[ 2016-11-30T14:42:23+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:userId
+
+[ 2016-11-30T14:43:13+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:userId
+
+[ 2016-11-30T14:43:25+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:userId
+
+[ 2016-11-30T14:46:19+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:identity
+
+[ 2016-11-30T14:46:58+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:identity
+
+[ 2016-11-30T14:47:07+08:00 ] ::1 /RentIt/index.php/Admin/User/edit.html
+ERR: 参数错误或者未定义:identity
+
+[ 2016-11-30T15:46:23+08:00 ] ::1 /RentIt/index.php/Admin/Accident/search.html
+ERR: 模板不存在:./Application/Admin/View/Public/layout.html
+
+[ 2016-11-30T15:56:49+08:00 ] ::1 /RentIt/index.php/Admin/Accident/add.html
+ERR: 1452:Cannot add or update a child row: a foreign key constraint fails (`wehavecars`.`accident`, CONSTRAINT `accident_ibfk_2` FOREIGN KEY (`user_ID`) REFERENCES `user` (`identity`))
+ [ SQL语句 ] : INSERT INTO `accident` (`rent_id`,`user_ID`,`license_no`,`date`,`place`) VALUES ('1','445','123','4233','34')
+
+[ 2016-11-30T16:14:32+08:00 ] ::1 /RentIt/index.php/Admin/Message/nospeak.html
+ERR: 模板不存在:./Application/Admin/View/Public/layout.html
+
+[ 2016-11-30T16:54:21+08:00 ] ::1 /RentIt/index.php/Admin/Car/add.html
+ERR: 模板不存在:./Application/Admin/View/Public/layout.html
+
+[ 2016-11-30T19:13:57+08:00 ] ::1 /RentIt/index.php/Admin/Rent/manage.html
+ERR: 非法操作:manage
+
+[ 2016-11-30T19:52:04+08:00 ] ::1 /RentIt/index.php/Admin/Car/search.html
+ERR: Think\Model:searchByDate方法不存在！
+
