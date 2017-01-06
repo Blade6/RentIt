@@ -164,7 +164,7 @@
 			<label>adminName:</label>
 			<input type="text" name="adminName" value="<?php echo ($adminName); ?>" size="20" maxlength="20">&nbsp&nbsp&nbsp
 			<label>password:</label>
-			<input type="text" name="password" value="<?php echo ($password); ?>" size="32" maxlength="20">&nbsp&nbsp&nbsp
+			<input type="text" name="password" size="32" maxlength="20">&nbsp&nbsp&nbsp
 			<button class="btn btn-success" type="submit" name="edit_1">修改</button>
 		</form>
 	</div>

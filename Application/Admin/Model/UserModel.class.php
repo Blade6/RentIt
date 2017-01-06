@@ -43,7 +43,8 @@ class UserModel extends Model{
 	public function delete($identity){
 		$del = new DeleteEvent();
 		if(!$del->delUserAccidents($identity)) return false;
-		if(!$del->delUserMessages($identity)) return false;
+		if(!$del->delUserPosts($identity)) return false;
+		if(!$del->delUserBlogs($identity)) return false;
 		if(!$del->delUserRent($identity)) return false;
 		$flag = $this->user->delete($identity);
 		if($flag!==false) return true;

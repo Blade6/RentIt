@@ -23,7 +23,7 @@ class RentController extends Controller {
 			$car = $check->checkCar(I('post.submit'),I('post.draw_date'),I('post.days'));
 			if($car) $this->redirect('Rent/index', '', 1, '');
 
-			$handle = $check->checkUser($_SESSION["user"]);
+			$handle = $check->checkUser(I('session.user'));
 			switch($handle){
 				case 0:
 					$this->redirect('Rent/rent', '', 1, '页面跳转中...');
@@ -58,9 +58,19 @@ class RentController extends Controller {
 			echo "<script>alert('您尚未选择车辆!');</script>";
 			$this->redirect('Rent/index', '', 1, '页面跳转中...');
 		}
+		$rent = new RentEvent();		
+		$info = $rent->read();
+		$this->assign('info',$info);
+		$time = $rent->GetTime();
+		$this->assign('today',$time["today"]);
+		$this->assign('title','订单页');
+		$this->display();
+	}
+
+	public function rentCar(){
 		if(isset($_POST["submit"])){
 			$rent = new RentModel();
-			$result = $rent->rent();
+			$result = $rent->rent(I('post.userID'),I('post.license_no'),I('post.date'),I('post.draw_date'),I('post.days'),I('post.rent_fare'),I('post.deposit'));
 			if(!$result){
 				echo "<script>alert('订单操作失败，请重新操作！');</script>";
 				$this->redirect('Rent/rent', '', 1, '页面跳转中...');
@@ -69,13 +79,6 @@ class RentController extends Controller {
 				echo "<script>alert('请尽快前往本公司交付相关费!');</script>";
 				$this->redirect('Me/index', '', 1, '页面跳转中...');
 			}
-		}
-		else{
-			$rentInfo = new RentEvent();
-			$info = $rentInfo->read();
-			$this->assign('info',$info);
-			$this->assign('title','订单页');
-			$this->display();
 		}
 	}
 }

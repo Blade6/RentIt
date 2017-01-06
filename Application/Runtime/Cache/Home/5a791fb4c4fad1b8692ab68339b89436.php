@@ -85,29 +85,43 @@
 			</div><!--/.nav-collapse -->
 		</div>	
 	</nav>
-	<div class="container">
+	<div class="container" style="min-height: 500px;">
 		<div class="toSay">
-			<a class="btn btn-primary" href="#say">我要留言</a>
+			<a class="btn btn-primary" href="#say">我要发帖</a>
 		</div>
-		<?php if(is_array($advices)): $i = 0; $__LIST__ = $advices;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><!-- 写在内部的css样式是最高级别的，这样能取代bootstrap的设定。 -->
-			<dl class="dl-horizontal" style="margin-bottom: 0px;">
-				<dt style="text-align: center;">
-					<div>
-						<img src="/RentIt/Public/user_pics/<?php echo ($data["picture"]); ?>" class="img-thumbnail user-pic">
-						<p><?php echo ($data["username"]); ?></p>
-					</div>
-				</dt>
-				<dd>
-					<div>
-						<p class="words"><?php echo ($data["content"]); ?></p>
-					</div>
-				</dd>
-			</dl>
-			<p class="text-right"><small><?php echo ($floor++); ?>楼 <?php echo ($data["date"]); ?> <?php echo ($data["time"]); ?></small></p>
-			<hr style="margin-top: 10px;margin-bottom: 10px;"><?php endforeach; endif; else: echo "" ;endif; ?>
-		<form action="<?php echo U('Advice/index');?>" method="post" role="form">
-			<a name="say" class="say"><strong>在这里发表您的意见:</strong></a>
-			<textarea class="form-control" rows="3" placeholder="不要超过140个字" name="words"></textarea>
+		<table class="table table-hover">
+			<thead>
+				<th>标签</th>
+				<th>回复数</th>
+				<th>标题</th>
+				<th>内容</th>
+				<th>作者</th>
+				<th>发帖时间</th>
+			</thead>
+			<tbody>
+				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><tr>
+						<td>
+							<?php if($data["tag"]=='1111') echo "意见"; else if($data["tag"]=='2222') echo "求助"; else echo "水贴"; ?>
+						</td>
+						<td><span class="glyphicon glyphicon-comment"></span> <?php echo ($data["replynum"]); ?></td>
+						<td><a href="<?php echo U('Advice/post',array('col'=>$data['collection'],'id'=>$data['id'],'page'=>1)); ?>"><?php echo ($data["title"]); ?></a></td>
+						<td><?php echo ($data["content"]); ?></td>
+						<td><span class="glyphicon glyphicon-user"></span> <?php echo ($data["username"]); ?></td>
+						<td><?php echo ($data["time"]); ?></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+			</tbody>
+		</table>
+		<div><?php echo ($pages); ?></div>
+		<form action="<?php echo U('Advice/newBlog');?>" method="post" role="form">
+			<a name="say" class="say"><strong>发表新帖</strong></a><br>
+			标题：<input type="text" name="title">
+			<select name="tag">
+				<option value="0000">水贴</option>				
+				<option value="1111">意见</option>
+				<option value="2222">求助</option>
+			</select>		
+			<textarea class="form-control btn-top" rows="4" placeholder="不要超过140个字" name="content"></textarea>
+			<input type="text" name="verify"><img src="<?php echo U('Advice/verify',array());?>" onclick="this.src='<?php echo U('Advice/verify',array());?>'"><br>
 			<button type="submit" class="btn btn-success btn-top" name="submit">发表</button>
 			<button type="reset" class="btn btn-default btn-top">重置</button>
 		</form>

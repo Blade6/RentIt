@@ -1,0 +1,42 @@
+	<h2 class="sub-header">{$topic}</h2>
+	<h3 class="sub-header">查询结果:</h3>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>User</th>
+				<th>Floor</th>
+				<th>ReplyTo</th>
+				<th>Content</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Message/postDelete')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.userid}</td>
+							<td>{$data.floor}</td>
+							<td>
+								<php>
+									if($data["refloor"]!=0) echo $data["refloor"]."楼";
+									else echo "None";
+								</php>
+							</td>
+							<td>{$data.content}</td>
+							<td>{$data.date}</td>
+							<td>{$data.time}</td>
+							<input type="hidden" name="topic" value="{$topic}">
+							<input type="hidden" name="col" value="{$col}">
+							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a class="btn btn-primary" href="<?php echo U('Message/post',array('col'=>$col,'topic'=>$topic));?>">返回</a>
+	</div>

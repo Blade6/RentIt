@@ -34,7 +34,7 @@ class AdminModel extends Model {
 	public function delete($id){
 		$flag = $this->admin->delete($id);
 		//delete()方法返回影响的记录数，sql执行出错的时候返回false，没有删除任何数据的时候返回0
-		//0===false为false，0==false为true
+		//0===false为0，0==false为1
 		if($flag!==false) return true;
 		return false;
 	}

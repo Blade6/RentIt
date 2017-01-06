@@ -1,0 +1,37 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>我的帖子</h3>
+			<table class="table table-striped">
+				<thead>
+					<th>Reply</th>
+					<th>Tag</th>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Date</th>
+					<th>Time</th>
+				</thead>
+				<tbody>
+					<volist name="data" id="data">
+						<tr>
+							<td>{$data.replynum}</td>
+							<td>
+								<php>
+									if($data["tag"]=='1111') echo "意见";
+									else if($data["tag"]=='2222') echo "求助";
+									else echo "水贴";
+								</php>
+							</td>
+							<td><a href="<?php echo U('Advice/post',array('col'=>$data['collection'],'id'=>$data['id'],'page'=>1)); ?>">{$data.title}</a></td>
+							<td>{$data.content}</td>
+							<td>{$data.date}</td>
+							<td>{$data.time}</td>
+						</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

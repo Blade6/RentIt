@@ -1,0 +1,39 @@
+<br>
+<div class="container Min-height">
+	<include file="Public/left" />
+	<div class="MyContent">
+		<div class="MyContainer">
+			<h3>我的回复</h3>
+			<table class="table table-striped">
+				<thead>
+					<th>帖子</th>
+					<th>日期</th>
+					<th>时间</th>
+					<th>回复楼层</th>
+					<th>回复内容</th>
+					<th>操作</th>
+				</thead>
+				<tbody>
+					<volist name="data" id="data">
+						<form action="{:U('Me/delPost')}" method="post">
+							<input type="hidden" value="{$data.id}" name="id">
+							<tr>
+								<td>{$data.title}</td>
+								<td>{$data.date}</td>
+								<td>{$data.time}</td>
+								<td>
+									<php>
+										if($data["refloor"]!=0) echo $data["refloor"]."楼";
+										else echo "无";
+									</php>
+								</td>
+								<td>{$data.content}</td>
+								<td><button class="btn btn-warning" type="submit" name="delete">删除</button></td>
+							</tr>
+						</form>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

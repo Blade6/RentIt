@@ -1,0 +1,48 @@
+[ 2016-12-24T11:51:51+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000662s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:51:53+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000557s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:52:44+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000534s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:52:45+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000526s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:53:17+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000515s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:53:17+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000976s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:53:23+08:00 ] ::1 /RentIt_DE/index.php/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000838s ]
+ERR: 无法加载模块:Advice
+
+[ 2016-12-24T11:53:45+08:00 ] ::1 /RentIt_DE/index.php/index.php/Home/Advice/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000561s ]
+ERR: 无法加载模块:Index.php
+

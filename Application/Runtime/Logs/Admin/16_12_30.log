@@ -1,0 +1,4 @@
+[ 2016-12-30T14:30:35+08:00 ] ::1 /RentIt/index.php/Admin/User/delete.html
+ERR: 1451:Cannot delete or update a parent row: a foreign key constraint fails (`wehavecars`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`identity`))
+ [ SQL语句 ] : DELETE FROM `user` WHERE `identity` = '123456789014543253'
+

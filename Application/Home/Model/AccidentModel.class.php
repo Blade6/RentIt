@@ -17,4 +17,5 @@ class AccidentModel extends Model{
 		$map['userid'] = $userID;
 		return $this->accident->where($map)->count();
 	}
+
 }

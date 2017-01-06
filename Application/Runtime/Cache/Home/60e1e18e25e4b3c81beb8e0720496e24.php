@@ -115,8 +115,13 @@
 					</a>
 				</li>
 				<li class="li">
-					<a class="nav-a" href="<?php echo U('Me/message');?>" id="message">
-						<span class="glyphicon glyphicon-edit"> 我的留言</span>
+					<a class="nav-a" href="<?php echo U('Me/blog');?>" id="blog">
+						<span class="glyphicon glyphicon-edit"> 我的帖子</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="<?php echo U('Me/post');?>" id="post">
+						<span class="glyphicon glyphicon-edit"> 我的回复</span>
 					</a>
 				</li>
 			</ul>
@@ -138,8 +143,11 @@
 					case "<?php echo U('Me/accident');?>":
 						$("#accident").addClass("nav-active");
 						break;
-					case "<?php echo U('Me/message');?>":
-						$("#message").addClass("nav-active");
+					case "<?php echo U('Me/blog');?>":
+						$("#blog").addClass("nav-active");
+						break;
+					case "<?php echo U('Me/post');?>":
+						$("#post").addClass("nav-active");
 						break;
 					default:
 						break;

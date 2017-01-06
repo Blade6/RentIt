@@ -33,7 +33,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RentIt/index.php/Home/Index/login"){
+						switch("/RentIt/index.php/Index/login.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;

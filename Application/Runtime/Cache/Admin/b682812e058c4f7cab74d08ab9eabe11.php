@@ -193,7 +193,7 @@
 							</td>
 							<td><button class="btn btn-success" type="submit" name="edit_0">修改</button></td>
 							<td>								
-								<button class="btn btn-danger" type="submit" name="delete">删除</button>
+								<?php if($data["id"]!=1){ echo "<button class=\"btn btn-danger\" type=\"submit\" name=\"delete\">删除</button>"; } ?>
 							</td>
 						</tr>
 					</form><?php endforeach; endif; else: echo "" ;endif; ?>

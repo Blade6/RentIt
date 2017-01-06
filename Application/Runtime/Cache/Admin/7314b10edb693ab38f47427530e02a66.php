@@ -162,22 +162,32 @@
 		<table class="table table-striped">
 			<thead>
 				<th>id</th>
-				<th>UserID</th>
+				<th>UserId</th>
+				<th>Tag</th>
+				<th>Title</th>
+				<th>Content</th>
 				<th>Date</th>
 				<th>Time</th>
-				<th>Content</th>
-				<th>Action</th>
+				<th>Admin</th>
+				<th>Delete</th>
 				<th>DELETE!</th>
 			</thead>
 			<tbody>
 				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$data): $mod = ($i % 2 );++$i;?><form action="<?php echo U('Message/delete');?>" method="post">
 						<tr>
-							<td><?php echo ($data["id"]); ?><input type="hidden" value="<?php echo ($data["id"]); ?>" name="id"></td>
+							<td><?php echo ($data["id"]); ?></td>
+							<input type="hidden" value="<?php echo ($data["id"]); ?>" name="id">
+							<input type="hidden" name="col" value="<?php echo ($data['collection']); ?>">
 							<td><?php echo ($data["userid"]); ?></td>
+							<td>
+								<?php if($data["tag"]=='1111') echo "意见"; else if($data["tag"]=='2222') echo "求助"; else echo "水贴"; ?>
+							</td>
+							<td><?php echo ($data["title"]); ?></td>
+							<td><?php echo ($data["content"]); ?></td>
 							<td><?php echo ($data["date"]); ?></td>
 							<td><?php echo ($data["time"]); ?></td>
-							<td><?php echo ($data["content"]); ?></td>
-							<?php if($data["flag"]==2) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>"; else if($data["flag"]==3) echo "<td><button class=\"btn btn-info\" type=\"submit\" name=\"back\">恢复</button></td>"; else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>"; ?>
+							<td><a class="btn btn-success" href="<?php echo U('Message/post',array('col'=>$data['collection'],'topic'=>$data['title']));?>">管理</button></td>
+							<?php if($data["flag"]==1) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>"; else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>"; ?>
 							<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
 						</tr>
 					</form><?php endforeach; endif; else: echo "" ;endif; ?>

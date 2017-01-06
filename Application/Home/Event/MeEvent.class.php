@@ -3,7 +3,8 @@ namespace Home\Event;
 use Home\Model\UserModel;
 use Home\Model\RentModel;
 use Home\Model\AccidentModel;
-use Home\Model\AdviceModel;
+use Home\Model\BlogModel;
+use Home\Model\PostModel;
 use Think\Upload;
 class MeEvent {
 	public function readUser($userID){
@@ -71,19 +72,19 @@ class MeEvent {
 		}
 	}
 
-	public function readAdvice($userID){
-		$advice = new AdviceModel();
-		return $advice->readByUserId($userID);
+	public function readBlog($userID){
+		$blog = new BlogModel();
+		return $blog->readByUserId($userID);
 	}
 
-	public function deleteAdvice($id){
-		$advice = new AdviceModel();
-		return $advice->delete($id);
+	public function readPost($userID){
+		$post = new PostModel();
+		return $post->readByUserId($userID);
 	}
 
-	public function regainAdvice($id){
-		$advice = new AdviceModel();
-		return $advice->appear($id);
+	public function deletePost($id){
+		$post = new PostModel();
+		return $post->delete($id);
 	}
 
 }

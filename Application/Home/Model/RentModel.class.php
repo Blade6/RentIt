@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 use Think\Model;
+use Vendor\phpRPC;
 class RentModel extends Model{
 	private $item;
 
@@ -8,12 +9,14 @@ class RentModel extends Model{
 		$this->item = M('rent');
 	}
 
-	public function rent(){
-		$data['userid'] = I('post.userID');
-		$data['license_no'] = I('post.license_no');
-		$data['draw_date'] = I('post.draw_date');
-		$data['days'] = I('post.days');
-		$data['deposit'] = I('post.deposit');
+	public function rent($userId, $license_no, $date, $draw_date, $days, $rent_fare, $deposit){
+		$data['userid'] = $userId;
+		$data['license_no'] = $license_no;
+		$data['date'] = $date;
+		$data['draw_date'] = $draw_date;
+		$data['days'] = $days;
+		$data['fare'] = $rent_fare*$days;
+		$data['deposit'] = $deposit;
 
 		$this->item->create($data);
 		if($this->item->add($data)) return true;

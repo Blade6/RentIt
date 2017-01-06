@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <?php if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
+    <?php session('[start]'); $time=15*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -92,7 +92,7 @@
           </ul>
         </div>
         <script type="text/javascript">
-          switch("/RentIt/index.php/Admin/User/edit/identity/440221198806012104.html"){
+          switch("/RentIt/index.php/Admin/User/edit/identity/123456789014543253.html"){
             case "<?php echo U('Index/manage');?>":
               document.getElementById("Index").className="active";
               break;

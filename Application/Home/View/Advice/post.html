@@ -1,0 +1,52 @@
+	<div class="container" style="min-height: 500px;">
+		<div>
+  			<h1 style="margin-left: 20px;">{$blog.title}</h1>
+		</div>
+		<hr>
+		<div>
+			<dl class="dl-horizontal" style="margin-bottom: 0px;">
+				<dt style="text-align: center;">
+					<div>
+						<img src="__PUBLIC__/user_pics/{$author.picture}" class="img-thumbnail user-pic">
+						<p>{$author.username}</p>
+					</div>
+				</dt>
+				<dd>
+					<p class="words">{$blog.content}</p>
+				</dd>
+			</dl>
+			<p class="text-right"><small>楼主 {$blog.date} {$blog.time}</small></p>
+			<hr style="margin-top: 10px;margin-bottom: 10px;">
+		</div>
+		<volist name="data" id="data">
+			<!-- 写在内部的css样式是最高级别的，这样能取代bootstrap的设定。 -->
+			<dl class="dl-horizontal" style="margin-bottom: 0px;">
+				<dt style="text-align: center;">
+					<div>
+						<img src="__PUBLIC__/user_pics/{$data.picture}" class="img-thumbnail user-pic">
+						<p>{$data.username}</p>
+					</div>
+				</dt>
+				<dd>
+					<div>
+						<php>
+							if($data['refloor']!=0) echo "<p><strong>回复".$data['refloor']."楼:</strong></p>";
+						</php>
+						<p class="words">{$data.content}</p>
+					</div>
+				</dd>
+			</dl>
+			<p class="text-right">
+				<small>{$data.floor}楼 {$data.date} {$data.time} <a href="#say">回应</a></small>
+			</p>
+			<hr style="margin-top: 10px;margin-bottom: 10px;">
+		</volist>
+		<form action="{:U('Advice/repost')}" method="post" role="form">
+			<a name="say" id="say" class="say"><strong>发表回复:</strong></a>
+			<input type="hidden" name="col" value="{$blog.collection}">
+			<input type="hidden" name="blogid" value="{$id}">
+			<textarea class="form-control" rows="3" placeholder="不要超过140个字" name="words"></textarea>
+			<button type="submit" class="btn btn-success btn-top" name="submit">发表</button>
+			<button type="reset" class="btn btn-default btn-top">重置</button>
+		</form>
+	</div>

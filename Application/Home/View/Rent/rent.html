@@ -4,11 +4,12 @@
 		<p class="">租金等条款将在合同中说明。</p>
 	</div>
 	<div class="Rent-info-left">
-		<form action="{:U('Rent/rent')}" method="post" class="form-horizontal" role="form">
+		<form action="{:U('Rent/rentCar')}" method="post" class="form-horizontal" role="form">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">身份证号</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="userID" type="text" value="{$info.userID}" disabled="true">
+					<input class="form-control" type="text" value="{$info.userID}" disabled="true">
+					<input type="hidden" name="userID" value="{$info.userID}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -20,31 +21,34 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">所选车辆</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="license_no" type="text" value="{$info.license_no}" disabled="true">
+					<input class="form-control" type="text" value="{$info.license_no}" disabled="true">
+					<input type="hidden" name="license_no" value="{$info.license_no}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">取车日期</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="draw_date" type="text" value="{$info.draw_date}" disabled="true">
+					<input class="form-control" name="draw_date" type="text" value="{$info.draw_date}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">租期</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="days" type="text" value="{$info.days}" disabled="true">
+					<input class="form-control" name="days" type="text" value="{$info.days}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">租金</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="rent_fare" type="text" value="{$info.rent_fare}" disabled="true">
+					<input class="form-control" type="text" value="¥ {$info.rent_fare}/day" disabled="true">
+					<input type="hidden" name="rent_fare" value="{$info.rent_fare}">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">押金</label>
 				<div class="col-sm-10">
-					<input class="form-control" name="deposit" type="text" value="{$info.deposit}" disabled="true">
+					<input class="form-control" type="text" value="{$info.deposit}" disabled="true">
+					<input type="hidden" name="deposit" value="{$info.deposit}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -55,6 +59,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
+					<input type="hidden" name="date" value="{$today}">
 					<button type="submit" class="btn btn-danger" name="submit">确认订单</button>
 				</div>
 			</div>

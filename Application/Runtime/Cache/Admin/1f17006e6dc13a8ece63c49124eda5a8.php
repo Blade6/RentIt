@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <?php if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
+    <?php session('[start]'); $time=15*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -46,7 +46,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="text-uppercase" href="<?php echo U('Index/index');?>"><?php echo (session('admin')); ?></a></li>
+            <li><a class="text-uppercase" href="<?php echo U('Admin/index');?>"><?php echo (session('admin')); ?></a></li>
             <li><a href="<?php echo U('Index/logout');?>">Logout</a></li>
             <li><a href="<?php echo U('Home/Index/index');?>">Go to RentIt</a></li>
           </ul>
@@ -98,13 +98,14 @@
               break;
 
             case "<?php echo U('User/generalManage');?>":
+            case "<?php echo U('User/edit');?>":
               document.getElementById("User").className="active";
               document.getElementById("userGeneral").className="sub-li";
               break;
             case "<?php echo U('User/superManage');?>":
+            case "<?php echo U('User/superEdit');?>":
               document.getElementById("userSuper").className="sub-li";
             case "<?php echo U('User/index');?>":
-            case "<?php echo U('User/edit');?>":
             case "<?php echo U('User/search');?>":
               document.getElementById("User").className="active";
               break;
@@ -113,12 +114,14 @@
             case "<?php echo U('Car/superEdit');?>":
               document.getElementById("carSuper").className="sub-li";
             case "<?php echo U('Car/index');?>":
+            case "<?php echo U('Car/add');?>":
             case "<?php echo U('Car/edit');?>":
             case "<?php echo U('Car/search');?>":
               document.getElementById("Car").className="active";
               break;
 
             case "<?php echo U('Rent/superManage');?>":
+            case "<?php echo U('Rent/superEdit');?>":
               document.getElementById("rentSuper").className="sub-li";
             case "<?php echo U('Rent/index');?>":
             case "<?php echo U('Rent/edit');?>":

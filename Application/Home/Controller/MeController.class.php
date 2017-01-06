@@ -72,10 +72,17 @@ class MeController extends Controller {
 		else $this->display();	
 	}
 
-	public function message(){
+	public function blog(){
 		$me = new MeEvent();
-		$advice = $me->readAdvice(I('session.user'));
-		$this->assign('advice',$advice);
+		$blog = $me->readBlog(I('session.user'));
+		$this->assign('data',$blog);
+		$this->display();
+	}
+
+	public function post(){
+		$me = new MeEvent();
+		$post = $me->readPost(I('session.user'));
+		$this->assign('data',$post);
 		$this->display();
 	}
 
@@ -93,20 +100,16 @@ class MeController extends Controller {
 		$this->display();
 	}
 
-	public function delMsg(){
+	public function delPost(){
 		$me = new MeEvent();
-		if(isset($_POST["delete"])) $flag = $me->deleteAdvice(I('post.id'));
-		else if(isset($_POST["appear"])) $flag = $me->regainAdvice(I('post.id'));
-		else{
-			echo "<script>alert('非法登录!');</script>";
-			$this->redirect('Me/message', '', 1, '页面跳转中...');
+		if(isset($_POST["delete"])){
+			$flag = $me->deletePost(I('post.id'));
+			if(!$flag){
+				echo "<script>alert('操作失败!');</script>";
+				$this->redirect('Me/post', '', 1, '页面跳转中...');
+			}
+			else $this->redirect('Me/post', '', 0, '页面跳转中...');
 		}
-
-		if(!$flag){
-			echo "<script>alert('操作失败!');</script>";
-			$this->redirect('Me/message', '', 1, '页面跳转中...');
-		}
-		else $this->redirect('Me/message', '', 0, '页面跳转中...');
 	}
 
 }

@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <?php if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
+    <?php session('[start]'); $time=15*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -98,13 +98,14 @@
               break;
 
             case "<?php echo U('User/generalManage');?>":
+            case "<?php echo U('User/edit');?>":
               document.getElementById("User").className="active";
               document.getElementById("userGeneral").className="sub-li";
               break;
             case "<?php echo U('User/superManage');?>":
+            case "<?php echo U('User/superEdit');?>":
               document.getElementById("userSuper").className="sub-li";
             case "<?php echo U('User/index');?>":
-            case "<?php echo U('User/edit');?>":
             case "<?php echo U('User/search');?>":
               document.getElementById("User").className="active";
               break;
@@ -113,12 +114,14 @@
             case "<?php echo U('Car/superEdit');?>":
               document.getElementById("carSuper").className="sub-li";
             case "<?php echo U('Car/index');?>":
+            case "<?php echo U('Car/add');?>":
             case "<?php echo U('Car/edit');?>":
             case "<?php echo U('Car/search');?>":
               document.getElementById("Car").className="active";
               break;
 
             case "<?php echo U('Rent/superManage');?>":
+            case "<?php echo U('Rent/superEdit');?>":
               document.getElementById("rentSuper").className="sub-li";
             case "<?php echo U('Rent/index');?>":
             case "<?php echo U('Rent/edit');?>":
@@ -181,7 +184,7 @@
 							</td>
 							<td><button class="btn btn-success" type="submit" name="edit_0">修改</button></td>
 							<td>								
-								<button class="btn btn-danger" type="submit" name="delete">删除</button>
+								<?php if($data["id"]!=1){ echo "<button class=\"btn btn-danger\" type=\"submit\" name=\"delete\">删除</button>"; } ?>
 							</td>
 						</tr>
 					</form><?php endforeach; endif; else: echo "" ;endif; ?>

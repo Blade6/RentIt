@@ -14,6 +14,12 @@ class AdminController extends Controller{
 	public function add(){
 		if(isset($_POST["add"])){
 			$admin = new AdminModel();
+
+			//禁止使用root保留字，也就是说，新添加的管理员的名字不能是root.
+			if(I('post.adminName')=='root'){
+				$this->error('不能和默认管理员同名！');
+			} 
+
 			$flag = $admin->add(I('post.adminName'),I('post.password'));
 			if(!$flag){
 				echo "<script>alert('添加失败!');</script>";
@@ -44,7 +50,7 @@ class AdminController extends Controller{
 			}
 			$admin = D('admin');
 			$flag = $admin->delete(I('post.id'));
-			if(!$flag) echo "<script>alert('删除失败!');</script>";			
+			if(!$flag) echo "<script>alert('删除失败!');</script>";	
 		}
 		$this->redirect('Admin/index', '', 1, '页面跳转中...');
 	}
@@ -57,11 +63,18 @@ class AdminController extends Controller{
 			}
 
 			$admin = new AdminModel();
+			//默认管理员的名字不允许修改！
+			if(I('post.id')==1&&I('post.adminName')!='root'){
+				$this->error('默认管理员的名字不能被修改!');
+			}
+
+			//禁止使用root保留字
+			if(I('post.id')!=1&&I('post.adminName')=='root'){
+				$this->error('不能和默认管理员同名！');
+			} 
 			$flag = $admin->edit(I('post.id'),I('post.adminName'),I('post.password'));
 			if(!$flag){
-				echo "<script>alert('修改失败!');</script>";
-				layout('Layout/layout');
-				$this->display();
+				$this->error('修改失败！');
 			}
 			else $this->redirect('Admin/index', '', 0, '页面跳转中...');
 		}
@@ -69,7 +82,6 @@ class AdminController extends Controller{
 			layout('Layout/layout');
 			$this->assign('id',$id);
 			$this->assign('adminName',$adminName);
-			$this->assign('password',$password);
 			$this->display();
 		}
 	}

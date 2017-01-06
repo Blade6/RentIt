@@ -172,7 +172,7 @@
 							<td><?php echo ($data["identity"]); ?><input type="hidden" value="<?php echo ($data["identity"]); ?>" name="id"></td>
 							<td><?php echo ($data["username"]); ?></td>
 							<?php if(!$data["shutup"]){ echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"nospeak\">禁言</button></td>"; echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"speak\" disabled=\"true\">解除禁言</button></td>"; } else{ echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"nospeak\" disabled=\"true\">禁言</button></td>"; echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"speak\">解除禁言</button></td>"; } ?>
-							<td><button class="btn btn-danger" type="submit" name="delete">永久删除该用户的所有留言</button></td>
+							<td><button class="btn btn-danger" type="submit" name="delete">删除他的所有帖子</button></td>
 						</tr>
 					</form><?php endforeach; endif; else: echo "" ;endif; ?>
 			</tbody>

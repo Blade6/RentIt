@@ -32,7 +32,15 @@ class UserModel extends Model {
 		else return false;
 	}
 
+	public function beforeRegister($userId){
+		$map['identity'] = $userId;
+		if($this->user->where($map)->find()) return false;
+		return true;
+	}
+
 	public function register(){
+		if(!$this->beforeRegister(I('post.ID'))) return -1;
+
 		$data['identity'] = I('post.ID');
 		$data['password'] = I('post.password','','md5');
 		$data['username'] = I('post.username');
@@ -42,8 +50,8 @@ class UserModel extends Model {
 		$data['phone_num'] = I('phone_num');
 		
 		$this->user->create($data);
-		if($this->user->add($data)) return true;
-		else return false;
+		if($this->user->add($data)) return 1;
+		return 0;
 	}
 
 	/*
@@ -61,6 +69,11 @@ class UserModel extends Model {
 	public function readInfo($userID){
 		$map['identity'] = $userID;
 		return $this->user->where($map)->find();
+	}
+
+	public function getUnameAndPic($userid){
+		$map['identity'] = $userid;
+		return $this->user->field(array('username','picture'))->where($map)->find();
 	}
 
 	public function changeUsername(char $userID, char $newUsername){

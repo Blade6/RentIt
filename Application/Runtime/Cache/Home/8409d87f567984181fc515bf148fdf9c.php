@@ -54,7 +54,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RentIt/index.php/Home/Me/order.html"){
+						switch("/RentIt/index.php/Me/order.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -115,8 +115,13 @@
 					</a>
 				</li>
 				<li class="li">
-					<a class="nav-a" href="<?php echo U('Me/message');?>" id="message">
-						<span class="glyphicon glyphicon-edit"> 我的留言</span>
+					<a class="nav-a" href="<?php echo U('Me/blog');?>" id="blog">
+						<span class="glyphicon glyphicon-edit"> 我的帖子</span>
+					</a>
+				</li>
+				<li class="li">
+					<a class="nav-a" href="<?php echo U('Me/post');?>" id="post">
+						<span class="glyphicon glyphicon-edit"> 我的回复</span>
 					</a>
 				</li>
 			</ul>
@@ -125,7 +130,7 @@
 	<script>
 		$(document).ready(
 			function(){
-				switch("/RentIt/index.php/Home/Me/order.html"){
+				switch("/RentIt/index.php/Me/order.html"){
 					case "<?php echo U('Me/index');?>":
 						$("#index").addClass("nav-active");
 						break;
@@ -138,8 +143,11 @@
 					case "<?php echo U('Me/accident');?>":
 						$("#accident").addClass("nav-active");
 						break;
-					case "<?php echo U('Me/message');?>":
-						$("#message").addClass("nav-active");
+					case "<?php echo U('Me/blog');?>":
+						$("#blog").addClass("nav-active");
+						break;
+					case "<?php echo U('Me/post');?>":
+						$("#post").addClass("nav-active");
 						break;
 					default:
 						break;
@@ -166,7 +174,7 @@
 							<td><?php echo ($data["date"]); ?></td>
 							<td><?php echo ($data["draw_date"]); ?></td>
 							<td><?php echo ($data["return_date"]); ?></td>
-							<td><?php echo ($data["guarantee_deposit"]); ?></td>
+							<td><?php echo ($data["deposit"]); ?></td>
 							<td><?php echo ($data["fare"]); ?></td>
 							<td>
 								<?php if(!$data["flag"]) echo "处理中"; else if(empty($data["return_date"])) echo "租车中"; else echo "已完成"; ?>

@@ -28,11 +28,21 @@ class IndexController extends Controller {
             $user = new UserModel();
             //flag的值记录用户是否成功注册
             $flag = $user->register();
-            if(!$flag){
-                echo "<script>alert('注册失败!请重新注册');</script>";
-                $this->display();
+            switch($flag){
+                case -1:
+                    echo "<script>alert('该身份证号已注册!');</script>";
+                    $this->display();
+                    break;
+                case 0:
+                    echo "<script>alert('注册失败!请重新注册');</script>";
+                    $this->display();
+                    break;
+                case 1:
+                    $this->redirect('Index/login', '', 0, '页面跳转中...');
+                    break;
+                default:
+                    break;
             }
-            else $this->redirect('Index/login', '', 0, '页面跳转中...');
         }
         else $this->display();
     }

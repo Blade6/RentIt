@@ -1,0 +1,37 @@
+[ 2016-12-25T10:20:03+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/index.html
+ERR: 1146:Table 'blouis.board' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `board`
+
+[ 2016-12-25T14:35:33+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/post.html
+ERR: 非法操作:post
+
+[ 2016-12-25T15:19:33+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/post/col/1224abcd.html
+ERR: 模板不存在:./Application/Admin/View/Public/layout.html
+
+[ 2016-12-25T15:28:14+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/post/col/1224abcd.html
+ERR: 模板不存在:./Application/Admin/View/Public/layout.html
+
+[ 2016-12-25T15:34:38+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/%7B:U('Message/post',array('col'=%3E$data['collection'],'topic'=%3E$data['title']))
+ERR: 非法操作:{:U('Message
+
+[ 2016-12-25T15:34:59+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/%7B:U('Message/post',array('col'=%3E$data['collection'],'topic'=%3E$data['title']))
+ERR: 非法操作:{:U('Message
+
+[ 2016-12-25T15:35:02+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/%7B:U('Message/post',array('col'=%3E$data['collection'],'topic'=%3E$data['title']))
+ERR: 非法操作:{:U('Message
+
+[ 2016-12-25T15:36:06+08:00 ] ::1 /RentIt_DE/index.php/Admin/Message/%7B:U('Message/post',array('col'=%3E$data['collection'],'topic'=%3E$data['title']))
+ERR: 非法操作:{:U('Message
+
+[ 2016-12-25T17:10:28+08:00 ] ::1 /RentIt_DE/index.php/Admin/User/delete.html
+ERR: 1451:Cannot delete or update a parent row: a foreign key constraint fails (`blouis`.`blog`, CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`identity`))
+ [ SQL语句 ] : DELETE FROM `user` WHERE `identity` = '440221199506261917'
+
+[ 2016-12-25T17:15:11+08:00 ] ::1 /RentIt_DE/index.php/Admin/User/delete.html
+ERR: 1451:Cannot delete or update a parent row: a foreign key constraint fails (`blouis`.`blog`, CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`identity`))
+ [ SQL语句 ] : DELETE FROM `user` WHERE `identity` = '440221199506261917'
+
+[ 2016-12-25T17:17:00+08:00 ] ::1 /RentIt_DE/index.php/Admin/User/delete.html
+ERR: 1451:Cannot delete or update a parent row: a foreign key constraint fails (`blouis`.`blog`, CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`identity`))
+ [ SQL语句 ] : DELETE FROM `user` WHERE `identity` = '440221199506261917'
+

@@ -1,0 +1,55 @@
+	<h2 class="sub-header">{$topic}</h2>
+	<div class="BeInCenter">
+		<form action="{:U('Message/postSearch')}" method="post" class="form-horizontal" role="form">
+			<input type="hidden" name="col" value="{$col}">
+			<input type="hidden" name="topic" value="{$topic}">
+			<div class="form-group">
+				<label>UserID:</label>
+				<input type="text" name="userID">
+				<button class="btn btn-primary" type="submit" name="search_1">查询</button>
+				<label>Date:</label>
+				<input type="date" name="date" value="{$date}">
+				<button class="btn btn-primary" type="submit" name="search_2">查询</button>
+				<label>Content:</label>
+				<input type="text" name="content">
+				<button class="btn btn-primary" type="submit" name="search_3">查询</button>
+			</div>
+		</form>
+	</div>
+	<div class="table-reposive">
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>User</th>
+				<th>Floor</th>
+				<th>ReplyTo</th>
+				<th>Content</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>DELETE!</th>
+			</thead>
+			<tbody>
+				<volist name="data" id="data">
+					<form action="{:U('Message/postDelete')}" method="post">
+						<tr>
+							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.userid}</td>
+							<td>{$data.floor}</td>
+							<td>
+								<php>
+									if($data["refloor"]!=0) echo $data["refloor"]."楼";
+									else echo "None";
+								</php>
+							</td>
+							<td>{$data.content}</td>
+							<td>{$data.date}</td>
+							<td>{$data.time}</td>
+							<input type="hidden" name="topic" value="{$topic}">
+							<input type="hidden" name="col" value="{$col}">
+							<td><button class="btn btn-danger" type="submit" name="delete">删除</button></td>
+						</tr>
+					</form>
+				</volist>
+			</tbody>
+		</table>
+	</div>

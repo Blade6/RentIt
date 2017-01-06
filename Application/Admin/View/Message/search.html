@@ -4,25 +4,38 @@
 		<table class="table table-striped">
 			<thead>
 				<th>id</th>
-				<th>UserID</th>
+				<th>UserId</th>
+				<th>Tag</th>
+				<th>Title</th>
+				<th>Content</th>
 				<th>Date</th>
 				<th>Time</th>
-				<th>Content</th>
-				<th>Action</th>
+				<th>Admin</th>
+				<th>Delete</th>
 				<th>DELETE!</th>
 			</thead>
 			<tbody>
 				<volist name="data" id="data">
 					<form action="{:U('Message/delete')}" method="post">
 						<tr>
-							<td>{$data.id}<input type="hidden" value="{$data.id}" name="id"></td>
+							<td>{$data.id}</td>
+							<input type="hidden" value="{$data.id}" name="id">
+							<input type="hidden" name="col" value="{$data['collection']}">
 							<td>{$data.userid}</td>
+							<td>
+								<php>
+									if($data["tag"]=='1111') echo "意见";
+									else if($data["tag"]=='2222') echo "求助";
+									else echo "水贴";
+								</php>
+							</td>
+							<td>{$data.title}</td>
+							<td>{$data.content}</td>
 							<td>{$data.date}</td>
 							<td>{$data.time}</td>
-							<td>{$data.content}</td>
+							<td><a class="btn btn-success" href="<?php echo U('Message/post',array('col'=>$data['collection'],'topic'=>$data['title']));?>">管理</button></td>
 							<php>
-								if($data["flag"]==2) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
-								else if($data["flag"]==3) echo "<td><button class=\"btn btn-info\" type=\"submit\" name=\"back\">恢复</button></td>";
+								if($data["flag"]==1) echo "<td><button class=\"btn btn-primary\" type=\"submit\" name=\"back\">恢复</button></td>";
 								else echo "<td><button class=\"btn btn-warning\" type=\"submit\" name=\"delete\">删除</button></td>";
 							</php>
 							<td><button class="btn btn-danger" type="submit" name="serious">永久删除</button></td>
