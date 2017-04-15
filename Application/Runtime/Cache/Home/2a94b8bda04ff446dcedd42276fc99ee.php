@@ -85,60 +85,14 @@
 			</div><!--/.nav-collapse -->
 		</div>	
 	</nav>
-
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>WHY CHOOSE RENTIT?</h1>
-              <p>Because it's where your dream starts.<br>
-                Because it's a place to find yourself.<br>
-                Because it's future.</p>
-              <p><a class="btn btn-lg btn-primary" href="<?php echo U('Index/register');?>" role="button">Sign Up Today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>RENT NOW</h1>
-              <p>Just three steps to rent a car.You can enjoy driving whenever and wherever.<br>
-                If you have any problems, call us any time!</p>
-              <p><a class="btn btn-lg btn-primary" href="<?php echo U('Rent/index');?>" role="button">Rent A Car Now</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>OUR OBJECTIVE</h1>
-              <p>Your satifsfaction,Our acceleration.<br>Your suggestion,Our direction.</p>
-           <p><a class="btn btn-lg btn-primary" href="<?php echo U('Advice/index');?>" role="button">Share Your Advice</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+    <!-- 兼容手机浏览器，只有屏幕宽度大于500像素才显示幻灯片 -->
+    <script>
+      if (screen && screen.width > 500) {
+        document.write('<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\"><!-- Indicators --><ol class=\"carousel-indicators\">  <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li> <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li> <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li> </ol> <div class=\"carousel-inner\" role=\"listbox\"> <div class=\"item active\"> <img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"First slide\"> <div class=\"container\"> <div class=\"carousel-caption\"> <h1>WHY CHOOSE RENTIT?</h1> <p>Because it\'s where your dream starts.<br> Because it\'s a place to find yourself.<br> Because it\'s future.</p> <p><a class=\"btn btn-lg btn-primary\" href=\"<?php echo U('Index/register');?>\" role=\"button\">Sign Up Today</a></p> </div> </div> </div> <div class=\"item\"> <img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Second slide\"> <div class=\"container\"> <div class=\"carousel-caption\"> <h1>RENT NOW</h1> <p>Just three steps to rent a car.You can enjoy driving whenever and wherever.<br> If you have any problems, call us any time!</p> <p><a class=\"btn btn-lg btn-primary\" href=\"<?php echo U('Rent/index');?>\" role=\"button\">Rent A Car Now</a></p> </div> </div> </div> <div class=\"item\"> <img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Third slide\"> <div class=\"container\"> <div class=\"carousel-caption\"> <h1>OUR OBJECTIVE</h1> <p>Your satifsfaction,Our acceleration.<br>Your suggestion,Our direction.</p> <p><a class=\"btn btn-lg btn-primary\" href=\"<?php echo U('Advice/index');?>\" role=\"button\">Share Your Advice</a></p> </div> </div> </div> </div> <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\"> <span class=\"glyphicon glyphicon-chevron-left\"></span> <span class=\"sr-only\">Previous</span> </a> <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\"> <span class=\"glyphicon glyphicon-chevron-right\"></span> <span class=\"sr-only\">Next</span> </a> </div><!-- /.carousel -->');
+      }
+    </script>
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -161,7 +115,7 @@
 
       <div class="row featurette">
         <div class="col-md-9">
-          <img src="/RentIt/Public/image/rent.png" class="featurette-image img-responsive" alt="Generic placeholder image" style="width: 829px;height: 626px;">
+          <img src="/RentIt/Public/image/rent.png" class="featurette-image img-responsive" alt="Generic placeholder image">
         </div>
         <div class="col-md-3">
           <h2 class="featurette-heading"><span class="text-muted">第二步:</span>选择时间和车辆</h2>
@@ -176,7 +130,7 @@
           <p class="lead">确认订单后，请尽快前往本公司支付押金。</p>
         </div>
         <div class="col-md-8">
-          <img src="/RentIt/Public/image/done.png" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image" style="width: 784px;height: 576px;">
+          <img src="/RentIt/Public/image/done.png" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>
 

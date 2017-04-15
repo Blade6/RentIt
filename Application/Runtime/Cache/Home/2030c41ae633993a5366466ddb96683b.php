@@ -54,7 +54,7 @@
 						</ul>
 					</li>
 					<script type="text/javascript">
-						switch("/RentIt/index.php/Advice/post/col/1224abcd/id/1/page/1.html"){
+						switch("/RentIt/index.php/Advice/post/col/0415nb6u/id/6/page/1.html"){
 							case "<?php echo U('Index/index');?>":
 								document.getElementById("Index").className="active";
 								break;
@@ -133,6 +133,7 @@
 			<button type="reset" class="btn btn-default btn-top">重置</button>
 		</form>
 	</div>
+	<p class="txt"></p>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

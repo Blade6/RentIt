@@ -127,6 +127,18 @@
 			</ul>
 		</div>
 	</div>
+	<p class="txt"></p>
+	<script>
+		window.onresize = resizeWindow;
+		function resizeWindow(){
+			var width = $(window).width();
+			$("p.txt").html(width);
+			if (width < 980) {
+				$("span").html("");
+				$("div.MyMenu").css("width", "50px");
+			}
+		}
+	</script>
 	<script>
 		$(document).ready(
 			function(){

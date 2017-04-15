@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <?php if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
+    <?php session('[start]'); $time=15*60; setcookie(session_name(),session_id(),time()+$time,"/"); if(empty($_SESSION["admin"])){ echo "<script>alert('非法操作!');</script>"; echo "<script>window.location='/RentIt/index.php/Admin/Index/index';</script>"; } ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -92,7 +92,7 @@
           </ul>
         </div>
         <script type="text/javascript">
-          switch("/RentIt/index.php/Admin/User/superEdit/identity/440221199505201918.html"){
+          switch("/RentIt/index.php/Admin/User/superEdit/identity/440221199506261917.html"){
             case "<?php echo U('Index/manage');?>":
               document.getElementById("Index").className="active";
               break;
@@ -161,7 +161,7 @@
 		<h3>修改UserId=<?php echo ($data["identity"]); ?>的记录:</h3>
 		<!-- 修改用户租车信息 -->
 		<div class="rentInfo">
-			<form class="form-horizontal" action="<?php echo U('User/edit');?>" method="post" role="form">
+			<form class="form-horizontal" action="<?php echo U('User/superEdit');?>" method="post" role="form">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">是否租车</label>
 					<div class="col-sm-10">

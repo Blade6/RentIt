@@ -13,7 +13,7 @@ return array(
     'LAYOUT_NAME'=>'Public/layout',
 
     //关闭页面Trace功能
-    'SHOW_PAGE_TRACE' =>true, 
+    'SHOW_PAGE_TRACE' =>false, 
 
     //设置模块以及默认模块
     'MODULE_ALLOW_LIST' => array('Home','Admin'),

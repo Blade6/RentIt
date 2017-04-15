@@ -46,15 +46,11 @@ body {
 	height: 50px;
 	background-color: #181818;
 	color: #e0e0e0;
-	/*使页脚绝对定位在第一屏的底部，如果网页高度超过一屏，那么往下拉，它将往上走*/
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	/*
-	使页脚固定在页面底部，不管多少屏，它将永远占据网页底部的位置，一般搭配body{padding-bottom: px;}使用
+	/*absolute使页脚绝对定位在第一屏的底部，如果网页高度超过一屏，那么往下拉，它将往上走*/
 	position: fixed;
 	bottom: 0px;
-	 */
+	left: 0px;
+	/*fixed使页脚固定在页面底部，不管多少屏，它将永远占据网页底部的位置，一般搭配body{padding-bottom: px;}使用*/
 }
 .center {
 	text-align: center;

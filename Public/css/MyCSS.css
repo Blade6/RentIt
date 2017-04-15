@@ -65,7 +65,6 @@ body {
 	float: right;
 }
 .fixed-right {
-	position: fixed;
  	top: 80px;
 }
 .headframe {
@@ -117,7 +116,7 @@ body {
 
 /*刷新库存车辆*/
 .renew {
-	margin-left: 20%;
+	margin-left: 20px;
 }
 
 /*汽车各项参数罗列*/
@@ -145,8 +144,9 @@ body {
 
 /*汽车图片*/
 .carImg {
-	width: 400px;
-	height: 250px;
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 /*汽车信息*/
@@ -181,30 +181,20 @@ body {
 }
 
 /*租车订单页面*/
-.Rent-info-left {
+.Rent-info {
 	width: 65%;
-	float: left;
-}
-.Rent-info-right {
-	width: 35%;
-	float: left;
-	clear: right;
-}
-.Rent-info-right img {
-	width: 399px;
-	height: 250px;
 }
 
 /*个人管理页面*/
 .MyMenu {
-	width: 15%;
+	width: 200px;
 	height: 400px;
 	margin-right: 20px;
 	float: left;
 	border:3px solid #eee;
 }
 .MyContent {
-	width: 80%;
+	width: 700px;
 	min-height: 700px;
 	float: left;
 	border:3px solid #eee;

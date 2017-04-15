@@ -90,7 +90,7 @@
 		<p class="">请及时到本公司办理押金支付以及合同的签订,并取车！</p>
 		<p class="">租金等条款将在合同中说明。</p>
 	</div>
-	<div class="Rent-info-left">
+	<div class="Rent-info">
 		<form action="<?php echo U('Rent/rentCar');?>" method="post" class="form-horizontal" role="form">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">身份证号</label>
@@ -152,9 +152,18 @@
 			</div>
 		</form>
 	</div>
-	<div class="Rent-info-right">
-		<img src="/RentIt/Public/pictures/<?php echo ($info["carImg"]); ?>">
-	</div>
+	<script>
+		resizeWindow();
+		window.onresize = resizeWindow;
+		function resizeWindow(){
+			var width = $(window).width();
+			if (width < 800) {
+				$("div.Rent-info").css("width", "100%");
+			} else {
+				$("div.Rent-info").css("width", "65%");
+			}
+		}
+	</script>
 </div>
 	<!-- Bootstrap core JavaScript
     ================================================== -->

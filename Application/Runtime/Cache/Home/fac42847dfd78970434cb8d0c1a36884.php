@@ -127,6 +127,14 @@
 			</ul>
 		</div>
 	</div>
+	<p class="txt"></p>
+	<script>
+		window.onresize = resizeWindow;
+		function resizeWindow(){
+			var width = $(window).width();
+			$("p.txt").html(width);
+		}
+	</script>
 	<script>
 		$(document).ready(
 			function(){

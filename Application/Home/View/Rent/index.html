@@ -38,4 +38,35 @@
 	<div class="sidebar">
 		<include file="Public/right" />
 	</div>
+	<!-- 解决手机浏览器查看时，因为浮动布局导致的重叠bug。 -->
+ 	<script>
+ 		resizeWindow();
+  		window.onresize = resizeWindow;
+  		function resizeWindow(){
+        	var width = $(window).width();
+        	$("p.txt").html(width);
+        	if(width < 700){
+        		$("div.sidebar").hide();
+          		$("div.bodyPart").css("width", "100%");
+        		$("div.carLeft").css({"float":"none","width":"auto","height":"auto"});
+        		$("div.carMidLeft").css({"width":"100px","height":"150px"});
+        		$("div.carMidRight").css({"width":"auto","height":"150px","margin-left":"50px"});
+        		$("div.carRight").css({"width":"auto","height":"150px","margin-left":"50px"});
+        	}else if(width < 1185){
+          		$("div.sidebar").hide();
+          		$("div.bodyPart").css("width", "100%");
+          		$("div.carLeft").css({"float":"left","width":"50%","height":"260px"});
+        		$("div.carMidLeft").css({"width":"15%","height":"260px"});
+        		$("div.carMidRight").css({"width":"20%","height":"260px","margin-left":"0"});
+        		$("div.carRight").css({"width":"15%","height":"260px","margin-left":"0"});
+        	}else{
+        		$("div.bodyPart").css("width", "75%");
+        		$("div.carLeft").css({"float":"left","width":"50%","height":"260px"});
+        		$("div.carMidLeft").css({"width":"15%","height":"260px"});
+        		$("div.carMidRight").css({"width":"20%","height":"260px","margin-left":"0"});
+        		$("div.carRight").css({"width":"15%","height":"260px","margin-left":"0"});
+          		$("div.sidebar").show();
+        	}
+  		}
+	</script>
 </div>

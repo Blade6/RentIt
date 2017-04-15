@@ -92,7 +92,7 @@
           </ul>
         </div>
         <script type="text/javascript">
-          switch("/RentIt/index.php/Admin/User/edit/identity/123456789014543253.html"){
+          switch("/RentIt/index.php/Admin/User/edit.html"){
             case "<?php echo U('Index/manage');?>":
               document.getElementById("Index").className="active";
               break;
